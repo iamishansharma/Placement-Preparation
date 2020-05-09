@@ -1,8 +1,6 @@
 # Placement Preparation Repository
 
-## Data Structures (Dast) in C++
-
-## Algorithms (Algo) in C++
+## Data Structures and Algorithms (DSA) in C++
 
 ## Object Oriented Programming (OOP) in Java
 
