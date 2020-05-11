@@ -1,0 +1,7 @@
+2,2,7,14,14		1,1,2,2,2
+
+inserting at i
+
+if i,i-1 are different ->
+
+	

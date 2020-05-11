@@ -14,7 +14,7 @@ void solve()
 
 	cin>>x>>y>>l>>r;
 
-	/*if(l<=x && r<=x)
+	if(l<=x && r<=x)
 	{
 		cout<<r<<endl;
 	}
@@ -64,21 +64,7 @@ void solve()
 	        cout << binaryNum[j];
 
 	    cout<<endl;
-	}*/
-
-	ll maxval = -1;
-	ll index = -1;
-
-	for(int i=l; i<=r; i++)
-	{
-		if(F(x,y,i) > maxval)
-		{
-			maxval = F(x,y,i);
-			index = i;
-		}
 	}
-
-	cout<<index<<endl;
 }
 
 int main()
