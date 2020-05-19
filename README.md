@@ -4,10 +4,10 @@
 
   Contains my solutions to various practice/contest problems from -> 
   
-  1. CodeChef
-  2. CodeForces
-  3. GFG
-  4. HackerRank.
+  - 1. CodeChef
+  - 2. CodeForces
+  - 3. GFG
+  - 4. HackerRank.
 
 ## Object Oriented Programming (OOP) in Java
 
