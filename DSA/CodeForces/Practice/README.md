@@ -1,3 +1,3 @@
 # These are CodeForces practices problems from the follow spreadsheets -> 
 
-	https://docs.google.com/spreadsheets/d/1myo-5h81HXz4RznwogtjhbhLuj61rDsZfXLoFrpVAZc/edit#gid=1160016643
+https://docs.google.com/spreadsheets/d/1iJZWP2nS_OB3kCTjq8L6TrJJ4o-5lhxDOyTaocSYc-k/edit#gid=84654839
