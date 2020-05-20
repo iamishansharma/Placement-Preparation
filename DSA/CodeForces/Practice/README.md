@@ -1,3 +1,4 @@
-# These are CodeForces practices problems from the follow spreadsheets -> 
+# Junior Training Sheet (by Mostafa Saad Ibrahim) -> 
 
-	https://docs.google.com/spreadsheets/d/1myo-5h81HXz4RznwogtjhbhLuj61rDsZfXLoFrpVAZc/edit#gid=1160016643
+There are my solutions to problems mentioned in this sheet.
+https://docs.google.com/spreadsheets/d/1iJZWP2nS_OB3kCTjq8L6TrJJ4o-5lhxDOyTaocSYc-k/edit#gid=84654839
