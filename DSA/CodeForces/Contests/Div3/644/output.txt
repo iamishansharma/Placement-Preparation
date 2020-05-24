@@ -1,0 +1,11 @@
+mat: 0
+flag: 0
+YES
+NO
+YES
+mat: 1
+flag: 0
+YES
+mat: 1
+flag: 0
+YES

@@ -41,13 +41,21 @@ void solve()
 			long long ri = top.second.second.second;
 
 			if(qi < req)
+			{
 				if(qi + ri < req)
+				{
 					req -= ri;
+				}
 				else
+				{
 					req = qi;
+				}
+			}
 		}
 		else
+		{
 			req += top.second.second.first;
+		}
 	}
 	cout << req << endl;
 }
