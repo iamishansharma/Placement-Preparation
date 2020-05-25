@@ -9,24 +9,24 @@ Done.
 
 - Sorting and Partitioning needs practice.
 
-## Stack
+### Stack
 
-## Queue
+### Queue
 
-## Binary Tree
+### Binary Tree
 
-## Binary Search Tree
+### Binary Search Tree
 
-## Heap
+### Heap
 
-## Hashing
+### Hashing
 
-## Arrays
+### Arrays
 
-## Graphs
+### Graphs
 
-## Matrix
+### Matrix
 
-## Misc
+### Misc
 
-## Advanced
+### Advanced
