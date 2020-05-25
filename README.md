@@ -2,7 +2,7 @@
 
 ## Data Structures and Algorithms (DSA) in C++
 
-  <img src="images/cp.jpg" width="200">
+  <img src="images/cp.jpg" width="400">
 
   Contains my solutions to various practice/contest problems from -> 
   
