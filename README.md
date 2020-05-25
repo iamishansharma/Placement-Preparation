@@ -1,4 +1,4 @@
-# Placement Preparation Repository
+# **Place**ment **Prep**aration Repository
 
 ## Data Structures and Algorithms (DSA) in C++
 
