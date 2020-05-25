@@ -2,8 +2,7 @@
 
 ## Data Structures and Algorithms (DSA) in C++
 
-  ![GitHub Logo](/images/cp.jpg)
-  Format: ![Alt Text](url)
+  ![CP](/images/cp.jpg)
 
   Contains my solutions to various practice/contest problems from -> 
   
@@ -14,8 +13,12 @@
 
 ## Object Oriented Programming (OOP) in Java
 
+  ![oop](/images/oop.jpg)
+  
   Contains my solutions to practice problems for OOP in Java
 
 ## Database Management Systems (DBMS) in SQL
+
+  ![sql](/images/sql.jpg)
 
   Contains my solutions to practice problems for DBMS in SQL
