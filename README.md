@@ -2,6 +2,9 @@
 
 ## Data Structures and Algorithms (DSA) in C++
 
+  ![GitHub Logo](/images/cp.jpg)
+  Format: ![Alt Text](url)
+
   Contains my solutions to various practice/contest problems from -> 
   
   - [CodeChef](https://www.codechef.com)
