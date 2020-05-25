@@ -5,28 +5,28 @@ Link: https://www.geeksforgeeks.org/fundamentals-of-algorithms/
 
 ### Searching and Sorting
 
-## Geometric Algorithms
+### Geometric Algorithms
 
-## Mathematical Algorithms
+### Mathematical Algorithms
 
-## Greedy Algorithms
+### Greedy Algorithms
 
-## Bit Algorithms
+### Bit Algorithms
 
-## Dynamic Algorithms
+### Dynamic Algorithms
 
-## Graph Algorithms
+### Graph Algorithms
 
-## Pattern Searching
+### Pattern Searching
 
-## Randomized Algorithms
+### Randomized Algorithms
 
-## String Algorithms
+### String Algorithms
 
-## Branch and Bound
+### Branch and Bound
 
-## Backtracking
+### Backtracking
 
-## Divide And Conquer
+### Divide And Conquer
 
-## Misc
+### Misc
