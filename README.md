@@ -2,7 +2,7 @@
 
 ## Data Structures and Algorithms (DSA) in C++
 
-  ![CP](/images/cp.jpg)
+  ![CP](/images/cp.jpg = 100)
 
   Contains my solutions to various practice/contest problems from -> 
   
