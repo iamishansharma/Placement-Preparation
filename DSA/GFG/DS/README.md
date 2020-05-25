@@ -5,6 +5,28 @@ Link: https://www.geeksforgeeks.org/data-structures/
 
 ## Linked Lists
 
-	Everything done.
+Done.
 
-	- Sorting, Partitioning and reversing needs work
+- Sorting and Partitioning needs practice.
+
+## Stack
+
+## Queue
+
+## Binary Tree
+
+## Binary Search Tree
+
+## Heap
+
+## Hashing
+
+## Arrays
+
+## Graphs
+
+## Matrix
+
+## Misc
+
+## Advanced
