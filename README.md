@@ -6,7 +6,7 @@
   
   - CodeChef
   - CodeForces
-  - GFG
+  - GFG (GeeksForGeeks)
   - HackerRank.
 
 ## Object Oriented Programming (OOP) in Java
