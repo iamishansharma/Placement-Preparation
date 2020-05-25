@@ -13,12 +13,12 @@
 
 ## Object Oriented Programming (OOP) in Java
 
-  ![oop](/images/oop.jpg)
+  <img src="images/oop.jpg" width="400">
   
   Contains my solutions to practice problems for OOP in Java
 
 ## Database Management Systems (DBMS) in SQL
 
-  ![sql](/images/sql.jpg)
+  <img src="images/sql.jpg" width="400">
 
   Contains my solutions to practice problems for DBMS in SQL
