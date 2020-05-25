@@ -1,1 +1,1 @@
-PRINT 'Chaliye Shuru Karte Hain OOP'
+PRINT 'Chaliye Shuru Karte Hain SQL'
