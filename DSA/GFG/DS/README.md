@@ -5,13 +5,21 @@ Link: https://www.geeksforgeeks.org/data-structures/
 
 ## Linked Lists
 
-Done.
+GFG Done, IB Done.
 
 - Sorting and Partitioning needs practice.
 
 ### Stack
 
+GFG Done, IB Done.
+
+- Problems that need dynamic programming / greedy algos needs to be seen a little.
+
 ### Queue
+
+IB Done.
+
+- GFG remaining
 
 ### Binary Tree
 

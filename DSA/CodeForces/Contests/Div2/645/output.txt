@@ -1,0 +1,6 @@
+Count: 2 V: 1
+Count: 3 V: 2
+Count: 4 V: 3
+Count: 5 V: 5
+Count: 6 V: 6
+6
