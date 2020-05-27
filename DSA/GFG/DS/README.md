@@ -17,9 +17,9 @@ GFG Done, IB Done.
 
 ### Queue
 
-IB Done.
+GFG Done, IB Done.
 
-- GFG remaining
+- Problems that need dynamic programming / greedy algos needs to be seen a little.
 
 ### Binary Tree
 

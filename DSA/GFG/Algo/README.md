@@ -3,30 +3,32 @@
 This repository contains my solutions to practice problems from GFG. <br />
 Link: https://www.geeksforgeeks.org/fundamentals-of-algorithms/
 
-### Searching and Sorting
+## Searching and Sorting
 
-### Geometric Algorithms
+Seaching GFG done, IB tomorrow.
 
-### Mathematical Algorithms
+## Geometric Algorithms
 
-### Greedy Algorithms
+## Mathematical Algorithms
 
-### Bit Algorithms
+## Greedy Algorithms
 
-### Dynamic Algorithms
+## Bit Algorithms
 
-### Graph Algorithms
+## Dynamic Algorithms
 
-### Pattern Searching
+## Graph Algorithms
 
-### Randomized Algorithms
+## Pattern Searching
 
-### String Algorithms
+## Randomized Algorithms
 
-### Branch and Bound
+## String Algorithms
 
-### Backtracking
+## Branch and Bound
 
-### Divide And Conquer
+## Backtracking
 
-### Misc
+## Divide And Conquer
+
+## Misc
