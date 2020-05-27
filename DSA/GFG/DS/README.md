@@ -9,33 +9,32 @@ GFG Done, IB Done.
 
 - Sorting and Partitioning needs practice.
 
-### Stack
-
+## Stack
 
 GFG Done, IB Done.
 
 - Problems that need dynamic programming / greedy algos needs to be seen a little.
 
-### Queue
+## Queue
 
 IB Done.
 
 - GFG remaining
 
-### Binary Tree
+## Binary Tree
 
-### Binary Search Tree
+## Binary Search Tree
 
-### Heap
+## Heap
 
-### Hashing
+## Hashing
 
-### Arrays
+## Arrays
 
-### Graphs
+## Graphs
 
-### Matrix
+## Matrix
 
-### Misc
+## Misc
 
-### Advanced
+## Advanced
