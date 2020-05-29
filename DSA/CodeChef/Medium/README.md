@@ -1,4 +1,4 @@
-# These are my solutions to CodeChef Practice (Medium) Problems
+# Solutions to CodeChef Practice (Medium) Problems
 
-	Each file name is the problem code on Code Chef
-	The code is self explanatory more or less.
+Each file name is the problem code on Code Chef
+The code is self explanatory more or less.

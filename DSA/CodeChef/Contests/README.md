@@ -1,4 +1,7 @@
 # These are my solutions to CodeChef Contest Problems
 
-	Each file name is the problem code on Code Chef
-	The code is self explanatory more or less.
+The folders are segregates as ./year/xx-month
+Each xx-month folder contains Long, Cookoff and Lunchtime folders
+
+Each file name is the problem code on CodeChef.
+The code is self explanatory more or less.
