@@ -10,6 +10,7 @@
   - [CodeForces](https://codeforces.com)
   - [GFG (GeeksForGeeks)](https://www.geeksforgeeks.org)
   - [HackerRank](https://www.hackerrank.com)
+  - [LeetCode](https://leetcode.com)
 
 ## Object Oriented Programming (OOP) in Java
 
