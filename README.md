@@ -12,7 +12,7 @@
   - [HackerRank](https://www.hackerrank.com)
   - [LeetCode](https://leetcode.com)
 
-## Object Oriented Programming (OOP) in Java
+## Object Oriented Programming (OOP) in Java and C++
 
   <img src="images/oop.jpg" width="400">
   
