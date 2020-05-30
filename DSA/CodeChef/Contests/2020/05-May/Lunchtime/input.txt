@@ -1,0 +1,10 @@
+3
+5
+abcab
+aabab
+3
+aaa
+aab
+2
+de
+cd
