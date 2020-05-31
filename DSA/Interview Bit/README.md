@@ -4,7 +4,7 @@
 
 # InterviewBit
 
-My solutions to DSA problems in [interviewbit] (https://interviewbit.com) in **C++**
+These are my solutions to DSA problems on [interviewbit] (https://interviewbit.com) in **C++**
 
 ## Topics
 
