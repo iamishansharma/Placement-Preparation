@@ -22,4 +22,4 @@ These interview questions are real; they are not pulled out of computer science 
   <img src="Book/back.jpg" width="150">
 </p>
 
-If you have any questions about the solutions you can find here, feel free to contact me **abhisheksharma.0517@gmail.com**.
+If you have any questions about the solutions feel free to contact me **sharmaishan747@gmail.com**.
