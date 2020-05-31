@@ -6,12 +6,6 @@
 
 My solutions to DSA problems in [interviewbit] (https://interviewbit.com) in **C++**
 
-## What you can find in this repository
-
-I have solved quite a number of problems from several topics. See the below table for further details. 
-
-[//]: # (Run the py script to generate the below table.)
-
 | Topic Name| Number of Problems Solved| 
 |  :--------: |  :--------: | 
 | [Arrays](https://github.com/black-shadows/InterviewBit-Topicwise-Solutions/tree/master/Arrays)| 0| 
