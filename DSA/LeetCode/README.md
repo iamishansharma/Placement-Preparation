@@ -8,7 +8,13 @@ These are my solutions to data structure and algorithm problems on [leetcode] (h
 
 If you have any questions about the solutions, feel free to contact me **sharmaishan747@gmail.com**.
 
-## Algorithms
+This folder contains two folders -> 
+
+## Contests
+
+This folder contains solutions to month long challenge
+
+## Practice
 
 * [Bit Manipulation](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#bit-manipulation)
 * [Array](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#array)
