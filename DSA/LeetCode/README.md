@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="lclogo.png">
+  <img src="lclogo.png" width="150">
 </p>
 
 # LeetCode-Topicwise-Solutions
