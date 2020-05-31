@@ -2,9 +2,9 @@
   <img src="iblogo.png" width = "200">
 </p>
 
-# InterviewBit-Topicwise-Solutions
+# InterviewBit
 
-My solutions to algorithmic problems in [interviewbit](https://interviewbit.com) written in **C++**
+My solutions to DSA problems in [interviewbit] (https://interviewbit.com) in **C++**
 
 ## What you can find in this repository
 
