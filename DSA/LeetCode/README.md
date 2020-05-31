@@ -8,7 +8,7 @@ These are my solutions to data structure and algorithm problems on [leetcode] (h
 
 ## Contests
 
-Monthwise Long Challenges
+Contains solutions to monthwise Long Challenges
 
 ## Practice
 
