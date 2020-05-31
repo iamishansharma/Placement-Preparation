@@ -12,7 +12,6 @@ My solutions to DSA problems in [interviewbit] (https://interviewbit.com) in **C
 | [Backtracking](https://github.com/black-shadows/InterviewBit-Topicwise-Solutions/tree/master/Backtracking)| 0| 
 | [Binary Search](https://github.com/black-shadows/InterviewBit-Topicwise-Solutions/tree/master/Binary%20Search)| 0| 
 | [Bit Manipulation](https://github.com/black-shadows/InterviewBit-Topicwise-Solutions/tree/master/Bit%20Manipulation)| 0| 
-| [Codersbit](https://github.com/black-shadows/InterviewBit-Topicwise-Solutions/tree/master/Codersbit)| 0|
 | [Dynamic Programming](https://github.com/black-shadows/InterviewBit-Topicwise-Solutions/tree/master/Dynamic%20Programming)| 0 | 
 | [Graphs](https://github.com/black-shadows/InterviewBit-Topicwise-Solutions/tree/master/Graphs)| 0| 
 | [Greedy](https://github.com/black-shadows/InterviewBit-Topicwise-Solutions/tree/master/Greedy)| 0| 
