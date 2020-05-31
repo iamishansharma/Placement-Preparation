@@ -1,37 +1,12 @@
 <p align="center">
-  <img src="lclogo.png" width="150">
+  <img src="lclogo.png" width="250">
 </p>
 
-# LeetCode-Topicwise-Solutions
+# LeetCode
 
-My solutions to algorithmic problems in [leetcode](https://leetcode.com/problemset/algorithms/) written in **C++** and **Python**
+My solutions to data struct and algorithm problems on [leetcode] (https://leetcode.com/problemset/algorithms/) in **C++**.
 
-## What you can find in this repository
-
-I have solved quite a number of problems from several topics. See the below table for further details.
-
-## How to contribute?
-
-1. Fork the repository 
-2. Do the desired changes (add/delete/modify)
-3. Make a pull request
-
-## When to contribute?
-
-1. If there is no solution to a problem in the main branch.
-2. If your solution is asymptotically faster than the one in the main branch.
-3. If your algorithm is of the same time complexity but with reduced code size. In this case, comment out the original solution and make a pull request with your solution.
-4. If you have another method of solving the problem which is asymptotically slower than the original method then, comment your solution in the main file and make a pull request.
-
-
-## What I'll be doing with this repository
-
-One day in the foreseeable future I will have solved all the challenges on [leetcode](https://leetcode.com/problemset/algorithms/).
-Then this repository will mostly become a static one.
-
-Constructive criticisms or code reviews of any kind are very much welcome.
-
-If you have any questions about the solutions you can find here, feel free to contact me **abhisheksharma.0517@gmail.com**.
+If you have any questions about the solutions, feel free to contact me **sharmaishan747@gmail.com**.
 
 ## Algorithms
 
@@ -59,24 +34,6 @@ If you have any questions about the solutions you can find here, feel free to co
 * [Geometry](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#geometry)
 * [Simulation](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#simulation)
 * [Design](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#design)
-
-## Database
-
-* [SQL](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#sql)
-
-
-## Shell
-
-* [Shell Script](https://github.com/black-shadows/LeetCode-Topicwise-Solutions#shell-script)
-
-## Reference
-
-* C++
-    * [STL Time Complexity (Detailed)](http://www.cplusplus.com/reference/stl/)
-    * [STL Time Complexity (Summary)](http://john-ahlgren.blogspot.com/2013/10/stl-container-performance.html)
-    * [Data Structure and Algorithms Cheat Sheet](https://github.com/gibsjose/cpp-cheat-sheet/blob/master/Data%20Structures%20and%20Algorithms.md)
-* Python
-    * [Time Complexity](https://wiki.python.org/moin/TimeComplexity)
 
 ## Bit Manipulation
 |  #  | Title           |  Solution       |  Time           | Space           | Difficulty    | Tag          | Note| 
