@@ -8,8 +8,8 @@ These are my solutions to DSA problems on [InterviewBit](https://interviewbit.co
 
 ## Topics
 
-| Topic Name| Number of Problems Solved| 
-|  :--------: |  :--------: | 
+| Topic Name| IB Link| Solution Link|
+|  :--------: |  :--------: | :--------: |
 | Arrays | [IB Link](https://www.interviewbit.com/courses/programming/topics/time-complexity/) | [Solutions](www.github.com) |
 * Backtracking 			[IB Link](https://www.interviewbit.com/courses/programming/topics/backtracking/) [Solutions] ()
 * Binary Search 		[IB Link](https://www.interviewbit.com/courses/programming/topics/binary-search/) [Solutions] ()
