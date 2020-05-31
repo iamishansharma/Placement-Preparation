@@ -10,7 +10,7 @@ The 'famous' book
 
 ## Data Structures and Algorithms (DSA) in C++
 
-<p align="center">
+<p align="left">
   <img src="images/cp.jpg" width="200">
 </p>
 
