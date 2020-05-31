@@ -4,15 +4,11 @@
 
 # LeetCode
 
-These are my solutions to data structure and algorithm problems on [leetcode] (https://leetcode.com/problemset/algorithms/) in **C++**.
-
-If you have any questions about the solutions, feel free to contact me **sharmaishan747@gmail.com**.
-
-This folder contains two folders -> 
+These are my solutions to data structure and algorithm problems on [leetcode] (https://leetcode.com/problemset/algorithms/) in **C++** and month long challenges
 
 ## Contests
 
-This folder contains solutions to month long challenge
+Monthwise Long Challenges
 
 ## Practice
 
