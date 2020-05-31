@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="gfglogo.png" width = "200">
+  <img src="gfglogo.png" width = "400">
 </p>
 
 # GeeksForGeeks
