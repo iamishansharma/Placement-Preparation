@@ -1,7 +1,7 @@
 # Cracking-the-Coding-Interview
 
 <p align="center">
-  <img src="Book/front.jpg">
+  <img src="Book/front.jpg" width="100">
 </p>
 
 Cracking the Coding Interview, 6th Edition is here to help you through this process, teaching you what you need to know and enabling you to perform at your very best.
