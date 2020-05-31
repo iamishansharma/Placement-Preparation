@@ -6,7 +6,7 @@
 
 These are my solutions to DSA problems on [GeeksForGeeks](https://geeksforgeeks.com) in **C++**
 
-This repo also contains a folder [**Must Do**]() which has solutions to problems mentioned in this article -> [Must Do Coding Questions for Companies like Amazon, Microsoft, Adobe, …](https://www.geeksforgeeks.org/must-do-coding-questions-for-companies-like-amazon-microsoft-adobe/)
+This repo also contains a folder [**Must Do Questions**]() which has solutions to problems mentioned in this article -> [Must Do Coding Questions for Companies like Amazon, Microsoft, Adobe, …](https://www.geeksforgeeks.org/must-do-coding-questions-for-companies-like-amazon-microsoft-adobe/)
 
 ## Data Structures
 
