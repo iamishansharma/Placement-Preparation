@@ -1,7 +1,7 @@
 # Cracking-the-Coding-Interview
 
 <p align="center">
-  <img src="Book/front.jpg" width="100">
+  <img src="Book/front.jpg" width="150">
 </p>
 
 Cracking the Coding Interview, 6th Edition is here to help you through this process, teaching you what you need to know and enabling you to perform at your very best.
@@ -19,7 +19,7 @@ These interview questions are real; they are not pulled out of computer science 
 * For interviewers and companies: details on what makes a good interview question and hiring process.
 
 <p align="center">
-  <img src="Book/back.jpg">
+  <img src="Book/back.jpg" width="150">
 </p>
 
 If you have any questions about the solutions you can find here, feel free to contact me **abhisheksharma.0517@gmail.com**.
