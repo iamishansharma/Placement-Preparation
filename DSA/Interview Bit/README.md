@@ -30,28 +30,6 @@ I have solved quite a number of problems from several topics. See the below tabl
 | [Strings](https://github.com/black-shadows/InterviewBit-Topicwise-Solutions/tree/master/Strings)| 32|
 | [Time Complexity](https://github.com/black-shadows/InterviewBit-Topicwise-Solutions/tree/master/Time%20Complexity)| 30| 
 | [Trees](https://github.com/black-shadows/InterviewBit-Topicwise-Solutions/tree/master/Trees)| 60| 
-| [Two Pointers](https://github.com/black-shadows/InterviewBit-Topicwise-Solutions/tree/master/Two%20Pointers)| 22| 
+| [Two Pointers](https://github.com/black-shadows/InterviewBit-Topicwise-Solutions/tree/master/Two%20Pointers)| 22|
 
-
-## How to contribute?
-
-1. Fork the repository 
-2. Do the desired changes (add/delete/modify)
-3. Make a pull request
-
-## When to contribute?
-
-1. If there is no solution to a problem in the main branch.
-2. If your solution is asymptotically faster than the one in the main branch.
-3. If your algorithm is of the same time complexity but with reduced code size. In this case, comment out the original solution and make a pull request with your solution.
-4. If you have another method of solving the problem which is asymptotically slower than the original method then, comment your solution in the main file and make a pull request.
-
-
-## What I'll be doing with this repository
-
-One day in the foreseeable future I will have solved all the challenges on [interviewbit](https://www.interviewbit.com).
-Then this repository will mostly become a static one.
-
-Constructive criticisms or code reviews of any kind are very much welcome.
-
-If you have any questions about the solutions you can find here, feel free to contact me **abhisheksharma.0517@gmail.com**.
+If you have any questions about the solutions, feel free to contact me **sharmaishan747@gmail.com**.
