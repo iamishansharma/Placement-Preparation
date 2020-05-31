@@ -11,7 +11,7 @@ The 'famous' book
 ## Data Structures and Algorithms (DSA) in C++
 
 <p align="left">
-  <img src="images/cp.jpg" width="200">
+  <img src="images/cp.jpg" width="300">
 </p>
 
   Contains my solutions to various practice/contest problems from -> 
@@ -24,7 +24,7 @@ The 'famous' book
 
 ## Object Oriented Programming (OOP) in Java and C++
 
-<p align="center">
+<p align="left">
   <img src="images/oop.jpg" width="200">
 </p>
  
@@ -32,7 +32,7 @@ The 'famous' book
 
 ## Database Management Systems (DBMS) in SQL
 
-<p align="center">
+<p align="left">
   <img src="images/sql.jpg" width="200">
  </p>
  
