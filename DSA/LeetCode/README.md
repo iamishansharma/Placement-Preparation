@@ -4,7 +4,7 @@
 
 # LeetCode
 
-My solutions to data struct and algorithm problems on [leetcode] (https://leetcode.com/problemset/algorithms/) in **C++**.
+These are my solutions to data structure and algorithm problems on [leetcode] (https://leetcode.com/problemset/algorithms/) in **C++**.
 
 If you have any questions about the solutions, feel free to contact me **sharmaishan747@gmail.com**.
 
