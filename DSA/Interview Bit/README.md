@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="iblogo.png">
+  <img src="iblogo.png" width = "200">
 </p>
 
 # InterviewBit-Topicwise-Solutions
