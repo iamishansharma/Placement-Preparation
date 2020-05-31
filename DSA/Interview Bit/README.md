@@ -8,13 +8,13 @@ These are my solutions to DSA problems on [InterviewBit](https://interviewbit.co
 
 ## Topics
 
-| Topic Name| IB Link| Solution Link|
+| Topic Name| InterviewBit Link| Solution Link|
 |  :--------: |  :--------: | :--------: |
 | Arrays | [IB Link](https://www.interviewbit.com/courses/programming/topics/time-complexity/) | [Solutions](www.github.com) |
-* Backtracking 			[IB Link](https://www.interviewbit.com/courses/programming/topics/backtracking/) [Solutions] ()
-* Binary Search 		[IB Link](https://www.interviewbit.com/courses/programming/topics/binary-search/) [Solutions] ()
-* Bit Manipulation 		[IB Link](https://www.interviewbit.com/courses/programming/topics/bit-manipulation/) [Solutions] ()
-* Dynamic Programming 	[IB Link](https://www.interviewbit.com/courses/programming/topics/dynamic-programming/) [Solutions] ()
+| Backtracking | [IB Link](https://www.interviewbit.com/courses/programming/topics/backtracking/) | [Solutions] ()
+| Binary Search | [IB Link](https://www.interviewbit.com/courses/programming/topics/binary-search/) | [Solutions] ()
+| Bit Manipulation | [IB Link](https://www.interviewbit.com/courses/programming/topics/bit-manipulation/) | [Solutions] ()
+| Dynamic Programming | [IB Link](https://www.interviewbit.com/courses/programming/topics/dynamic-programming/) | [Solutions] ()
 * Graphs 				[IB Link](https://www.interviewbit.com/courses/programming/topics/graph-data-structure-algorithms/) [Solutions] ()
 * Greedy 				[IB Link](https://www.interviewbit.com/courses/programming/topics/greedy-algorithm/) [Solutions] ()
 * Hashing 				[IB Link](https://www.interviewbit.com/courses/programming/topics/hashing/) [Solutions] ()
