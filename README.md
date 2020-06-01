@@ -1,10 +1,5 @@
 # Placement Preparation Repository
 
-## Books
-
-* **Cracking the Coding Interview** by **Gayle Laakmann McDowell**
-* **Data Structures And Algorithms Made Easy** by **Narasimha Karumanchi**
-
 ## Cheat Sheets
 
 Cheat sheets for syntax and concepts in various progrmaming languages
