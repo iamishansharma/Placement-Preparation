@@ -18,27 +18,27 @@ Contains solutions to monthwise Long Challenges
 
 | Topic| LeetCode Link| Folder Link|
 |  :--------: |  :--------: | :--------: |
-| Array | [Link]() | [Link]()|
-| Dynamic Programming | [Link]() | [Link]()|
-| String | [Link]() | [Link]()|
-| Math | [Link]() | [Link]()|
-| Tree | [Link]() | [Link]()|
-| Depth-First Search | [Link]() | [Link]()|
-| Hash-Table | [Link]() | [Link]()|
-| Binary Search | [Link]() | [Link]()|
-| Greedy | [Link]() | [Link]()|
-| Breadth-First Search | [Link]() | [Link]()|
-| Stack | [Link]() | [Link]()|
-| Backtracking | [Link]() | [Link]()|
-| Sort | [Link]() | [Link]()|
-| Bit Manipulation | [Link]() | [Link]()|
-| Design | [Link]() | [Link]()|
-| Graph | [Link]() | [Link]()|
-| Linked List | [Link]() | [Link]()|
-| Heap | [Link]() | [Link]()|
-| Sliding Window | [Link]() | [Link]()|
-| Divide And Conquer | [Link]() | [Link]()|
-| Recursion | [Link]() | [Link]()|
-| Queue | [Link]() | [Link]()|
-| Geometry | [Link]() | [Link]()|
-| Binary Search Tree | [Link]() | [Link]()|
+| Array | [Link]() | [Solutions]()|
+| Dynamic Programming | [Link]() | [Solutions]()|
+| String | [Link]() | [Solutions]()|
+| Math | [Link]() | [Solutions]()|
+| Tree | [Link]() | [Solutions]()|
+| Depth-First Search | [Link]() | [Solutions]()|
+| Hash-Table | [Link]() | [Solutions]()|
+| Binary Search | [Link]() | [Solutions]()|
+| Greedy | [Link]() | [Solutions]()|
+| Breadth-First Search | [Link]() | [Solutions]()|
+| Stack | [Link]() | [Solutions]()|
+| Backtracking | [Link]() | [Solutions]()|
+| Sort | [Link]() | [Solutions]()|
+| Bit Manipulation | [Link]() | [Solutions]()|
+| Design | [Link]() | [Solutions]()|
+| Graph | [Link]() | [[Solutions]()|
+| Linked List | [Link]() | [Solutions]()|
+| Heap | [Link]() | [Solutions]()|
+| Sliding Window | [Link]() | [Solutions]()|
+| Divide And Conquer | [Link]() | [Solutions]()|
+| Recursion | [Link]() | [Solutions]()|
+| Queue | [Link]() | [Solutions]()|
+| Geometry | [Link]() | [Solutions]()|
+| Binary Search Tree | [Link]() | [Solutions]()|
