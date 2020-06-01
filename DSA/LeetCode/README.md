@@ -12,7 +12,7 @@ Contains solutions to monthwise Long Challenges
 
 | Month-Year| LeetCode Link| Folder Link|
 |  :--------: |  :--------: | :--------: |
-| June-2020 | [Link](https://leetcode.com/explore/challenge/card/june-leetcoding-challenge/) | [Link](https://github.com/iamishansharma/PlacePrep/tree/master/DSA/LeetCode/Contests/June)
+| June-2020 | [Link](https://leetcode.com/explore/challenge/card/june-leetcoding-challenge/) | [Solutions](https://github.com/iamishansharma/PlacePrep/tree/master/DSA/LeetCode/Contests/June)
 
 ## Practice
 
@@ -33,7 +33,7 @@ Contains solutions to monthwise Long Challenges
 | Sort | [Link]() | [Solutions]()|
 | Bit Manipulation | [Link]() | [Solutions]()|
 | Design | [Link]() | [Solutions]()|
-| Graph | [Link]() | [[Solutions]()|
+| Graph | [Link]() | [Solutions]()|
 | Linked List | [Link]() | [Solutions]()|
 | Heap | [Link]() | [Solutions]()|
 | Sliding Window | [Link]() | [Solutions]()|
