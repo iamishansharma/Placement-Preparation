@@ -17,7 +17,7 @@ Contains solutions to monthwise Long Challenges
 ## Practice
 
 | Topic| LeetCode Link| Folder Link|
-|  :-------- |  :--------: | :--------: |
+|  :--------: |  :--------: | :--------: |
 | Array | [Link]() | [Link]()|
 | Dynamic Programming | [Link]() | [Link]()|
 | String | [Link]() | [Link]()|
