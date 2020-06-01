@@ -12,12 +12,12 @@ Contains solutions to monthwise Long Challenges
 
 | Month-Year| LeetCode Link| Folder Link|
 |  :--------: |  :--------: | :--------: |
-| June-2020 | [Link](https://leetcode.com/explore/challenge/card/june-leetcoding-challenge/) | [Link]()
+| June-2020 | [Link](https://leetcode.com/explore/challenge/card/june-leetcoding-challenge/) | [Link](https://github.com/iamishansharma/PlacePrep/tree/master/DSA/LeetCode/Contests/June)
 
 ## Practice
 
 | Topic| LeetCode Link| Folder Link|
-|  :--------: |  :--------: | :--------: |
+|  :-------- |  :--------: | :--------: |
 | Array | [Link]() | [Link]()|
 | Dynamic Programming | [Link]() | [Link]()|
 | String | [Link]() | [Link]()|
