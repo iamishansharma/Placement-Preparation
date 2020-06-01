@@ -19,7 +19,6 @@ The 'famous' book
   - [CodeChef](https://www.codechef.com)
   - [CodeForces](https://codeforces.com)
   - [GFG (GeeksForGeeks)](https://www.geeksforgeeks.org)
-  - [HackerRank](https://www.hackerrank.com)
   - [InterviewBit](https://www.interviewbit.com/practice/)
   - [LeetCode](https://leetcode.com)
 
