@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="cclogo.png" width = "200">
+  <img src="cclogo.png" width = "400">
 </p>
 
 # CodeChef
