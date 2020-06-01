@@ -4,7 +4,7 @@
 
 # LeetCode
 
-These are my solutions to practice data structure and algorithm problems and month long challenges on [LeetCode](https://leetcode.com/problemset/algorithms/) in **C++**
+These are my solutions to practice DSA problems and month long challenges on [LeetCode](https://leetcode.com/problemset/algorithms/) in **C++**
 
 ## Contests
 
