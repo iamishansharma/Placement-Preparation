@@ -13,10 +13,10 @@ This repo also contains a folder [**Must Do Questions**](https://github.com/iami
 | Topic Name| GFG Link| Solution Link|
 |  :--------: |  :--------: | :--------: |
 | Arrays | [Link](https://practice.geeksforgeeks.org/explore/?category[]=Arrays&page=1) | [Solutions]()
-| Linked Lists| [Link](https://practice.geeksforgeeks.org/explore/?category[]=Linked%20List&page=1)|  [Solutions]()
-| Stack| [Link](https://practice.geeksforgeeks.org/explore/?category%5B%5D=Stack&page=1)|  [Solutions]()
-| Queue| [Link](https://practice.geeksforgeeks.org/explore/?category[]=Queue&page=1)|  [Solutions]()
-| Trees | [Link](https://practice.geeksforgeeks.org/explore/?category[]=Tree&page=1)|  [Solutions](https://github.com/iamishansharma/PlacePrep/tree/master/DSA/GeeksForGeeks/Binary%20Tree)
+| Linked Lists| [Link](https://practice.geeksforgeeks.org/explore/?category[]=Linked%20List&page=1)|  [Solutions](https://github.com/iamishansharma/PlacePrep/tree/master/DSA/GeeksForGeeks/Linked%20Lists)
+| Stack| [Link](https://practice.geeksforgeeks.org/explore/?category%5B%5D=Stack&page=1)|  [Solutions](https://github.com/iamishansharma/PlacePrep/tree/master/DSA/GeeksForGeeks/Stack)
+| Queue| [Link](https://practice.geeksforgeeks.org/explore/?category[]=Queue&page=1)|  [Solutions](https://github.com/iamishansharma/PlacePrep/tree/master/DSA/GeeksForGeeks/Queue)
+| Trees | [Link](https://practice.geeksforgeeks.org/explore/?category[]=Tree&page=1)|  [Solutions](https://github.com/iamishansharma/PlacePrep/tree/master/DSA/GeeksForGeeks/Tree)
 | Heap | [Link](https://practice.geeksforgeeks.org/explore/?category[]=Heap&page=1)|  [Solutions]()
 | Hashing | [Link](https://practice.geeksforgeeks.org/explore/?category[]=Hash&page=1)|  [Solutions]()
 | Matrix | [Link](https://practice.geeksforgeeks.org/explore/?category[]=Matrix&page=1)|  [Solutions]()
