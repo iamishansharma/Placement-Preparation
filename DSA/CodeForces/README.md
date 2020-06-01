@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="cflogo.png" width = "200">
+  <img src="cflogo.png" width = "400">
 </p>
 
 # CodeForces
