@@ -23,4 +23,4 @@ Solutions to practice problems in [Easy](https://www.codechef.com/problems/easy)
 
 Solutions to practice problems in [Medium](https://www.codechef.com/problems/medium) section
 
-If you have any questions about the solutions, feel free to contact me **sharmaishan747@gmail.com**.
+* If you have any questions about the solutions, feel free to contact me **sharmaishan747@gmail.com**.
