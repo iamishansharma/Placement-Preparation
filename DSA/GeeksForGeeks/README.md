@@ -4,7 +4,7 @@
 
 # GeeksForGeeks
 
-These are my solutions to DSA problems on [GeeksForGeeks](https://geeksforgeeks.com) in **C++**
+These are my solutions to DSA problems on [Practice: GeeksForGeeks](https://practice.geeksforgeeks.org/home/) in **C++**
 
 This repo also contains a folder [**Must Do Questions**](https://github.com/iamishansharma/PlacePrep/tree/master/DSA/GeeksForGeeks/Must%20Do%20Questions) which has solutions to problems mentioned in this article -> [Must Do Coding Questions for Companies like Amazon, Microsoft, Adobe, …](https://www.geeksforgeeks.org/must-do-coding-questions-for-companies-like-amazon-microsoft-adobe/)
 
