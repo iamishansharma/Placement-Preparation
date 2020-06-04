@@ -3,7 +3,7 @@
 ## Cheat Sheets
 
 <p align="left">
-  <img src="cs.png" width="200">
+  <img src="images/cs.png" width="200">
 </p>
 
 Cheat sheets for syntax and concepts in various progrmaming languages
