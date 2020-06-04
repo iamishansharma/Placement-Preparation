@@ -2,7 +2,7 @@
 
 ## Cheat Sheets
 
-<p align="center">
+<p align="left">
   <img src="cs.png" width="200">
 </p>
 
