@@ -2,6 +2,10 @@
 
 ## Cheat Sheets
 
+<p align="center">
+  <img src="cs.png" width="200">
+</p>
+
 Cheat sheets for syntax and concepts in various progrmaming languages
 
 ## Data Structures and Algorithms (DSA) in C++
