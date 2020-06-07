@@ -6,16 +6,6 @@
 
 These are my solutions to practice DSA problems and month long challenges on [LeetCode](https://leetcode.com/problemset/algorithms/) in **C++**
 
-## Contests
-
-Contains solutions to monthwise Long Challenges
-
-| Month-Year| LeetCode Link| Folder Link|
-|  :--------: |  :--------: | :--------: |
-| June-2020 | [Link](https://leetcode.com/explore/challenge/card/june-leetcoding-challenge/) | [Solutions](https://github.com/iamishansharma/PlacePrep/tree/master/DSA/LeetCode/Contests/June)
-
-## Practice
-
 | Topic| LeetCode Link| Folder Link|
 |  :--------: |  :--------: | :--------: |
 | Array | [Link]() | [Solutions]()|
