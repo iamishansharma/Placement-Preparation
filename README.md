@@ -14,10 +14,8 @@ Cheat sheets for syntax and concepts in various progrmaming languages
   <img src="images/cp.jpg" width="300">
 </p>
 
-  Contains my solutions to various practice/contest problems from -> 
+  Contains my solutions to various DSA practice problems from -> 
   
-  - [CodeChef](https://www.codechef.com)
-  - [CodeForces](https://codeforces.com)
   - [GFG (GeeksForGeeks)](https://www.geeksforgeeks.org)
   - [InterviewBit](https://www.interviewbit.com/practice/)
   - [LeetCode](https://leetcode.com)
