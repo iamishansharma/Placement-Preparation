@@ -1,6 +1,7 @@
 // { Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
+#define MAX_HEIGHT 100000
 
 // Tree Node
 struct Node
@@ -9,7 +10,7 @@ struct Node
     Node* left;
     Node* right;
 };
-Node * lca(Node* root,int n1,int n2);
+
 // Utility function to create a new Tree Node
 Node* newNode(int val)
 {
@@ -21,6 +22,8 @@ Node* newNode(int val)
     return temp;
 }
 
+
+int printKDistantfromLeaf(Node* node, int k);
 
 // Function to Build Tree
 Node* buildTree(string str)
@@ -37,9 +40,6 @@ Node* buildTree(string str)
     for(string str; iss >> str; )
         ip.push_back(str);
 
-    // for(string i:ip)
-    //     cout<<i<<" ";
-    // cout<<endl;
     // Create the root of the tree
     Node* root = newNode(stoi(ip[0]));
 
@@ -89,67 +89,52 @@ Node* buildTree(string str)
     return root;
 }
 
-// Function for Inorder Traversal
-void printInorder(Node* root)
-{
-    if(!root)
-        return;
-
-    printInorder(root->left);
-    cout<<root->data<<" ";
-    printInorder(root->right);
-}
 
 int main() {
     int t;
-    scanf("%d",&t);
+    string tc;
+    getline(cin, tc);
+    t=stoi(tc);
     while(t--)
     {
-        int a,b;
-        scanf("%d %d ",&a,&b);
-        string s;
-        getline(cin,s);
+        string s, ks;
+        getline(cin, s);
         Node* root = buildTree(s);
-        cout<<lca(root,a,b)->data<<endl;
+        getline(cin, ks);
+        int k=stoi(ks);
+        cout<<printKDistantfromLeaf(root, k)<<endl;
     }
     return 0;
 }
+
 // } Driver Code Ends
 
 
-/* A binary tree node
-
-struct Node
+//Node Structure
+/*struct Node
 {
-    int data;
-    struct Node* left;
-    struct Node* right;
-    
-    Node(int x){
-        data = x;
-        left = right = NULL;
-    }
-};
- */
+	int key;
+	Node *left, *right;
+};*/
 
-/* If n1 and n2 are present, return pointer
-   to LCA. If both are not present, return 
-   NULL. Else if left subtree contains any 
-   of them return pointer to left.*/
-
-Node* lca(Node* root ,int n1 ,int n2 )
+//This function returns the count of the total distinct nodes that are at a 
+//distance k from leaf nodes.
+int isDistanceToLeaf(Node *root, int k)
 {
     if(root == NULL)
-        return NULL;
+        return 0;
         
-    if(root->data == n1 || root->data == n2)
-        return root;
+    if(k==0)
+        if(root->left == NULL && root->right == NULL)
+            return 1;
+            
+    return isDistanceToLeaf(root->left,k-1) || isDistanceToLeaf(root->right,k-1);
+}
+
+int printKDistantfromLeaf(Node* root, int k)
+{
+    if(root==NULL)
+        return 0;
     
-    Node *left_lca = lca(root->left, n1, n2);
-    Node *right_lca = lca(root->right, n1, n2);
-    
-    if(left_lca != NULL && right_lca != NULL)
-        return root;
-        
-    return left_lca == NULL ? right_lca : left_lca;
+    return isDistanceToLeaf(root,k) + printKDistantfromLeaf(root->left,k) + printKDistantfromLeaf(root->right,k);
 }

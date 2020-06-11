@@ -9,7 +9,6 @@ struct Node
     Node* left;
     Node* right;
 };
-Node * lca(Node* root,int n1,int n2);
 // Utility function to create a new Tree Node
 Node* newNode(int val)
 {
@@ -17,75 +16,73 @@ Node* newNode(int val)
     temp->data = val;
     temp->left = NULL;
     temp->right = NULL;
-
+    
     return temp;
 }
 
+void verticalOrder(Node *root);
 
 // Function to Build Tree
 Node* buildTree(string str)
-{
+{   
     // Corner Case
     if(str.length() == 0 || str[0] == 'N')
-        return NULL;
-
-    // Creating vector of strings from input
+            return NULL;
+    
+    // Creating vector of strings from input 
     // string after spliting by space
     vector<string> ip;
-
+    
     istringstream iss(str);
     for(string str; iss >> str; )
         ip.push_back(str);
-
-    // for(string i:ip)
-    //     cout<<i<<" ";
-    // cout<<endl;
+        
     // Create the root of the tree
     Node* root = newNode(stoi(ip[0]));
-
+          
     // Push the root to the queue
     queue<Node*> queue;
     queue.push(root);
-
+        
     // Starting from the second element
     int i = 1;
     while(!queue.empty() && i < ip.size()) {
-
+            
         // Get and remove the front of the queue
         Node* currNode = queue.front();
         queue.pop();
-
+            
         // Get the current node's value from the string
         string currVal = ip[i];
-
+            
         // If the left child is not null
         if(currVal != "N") {
-
+                
             // Create the left child for the current node
             currNode->left = newNode(stoi(currVal));
-
+                
             // Push it to the queue
             queue.push(currNode->left);
         }
-
+            
         // For the right child
         i++;
         if(i >= ip.size())
             break;
         currVal = ip[i];
-
+            
         // If the right child is not null
         if(currVal != "N") {
-
+                
             // Create the right child for the current node
             currNode->right = newNode(stoi(currVal));
-
+                
             // Push it to the queue
             queue.push(currNode->right);
         }
         i++;
     }
-
+    
     return root;
 }
 
@@ -94,31 +91,39 @@ void printInorder(Node* root)
 {
     if(!root)
         return;
-
+        
     printInorder(root->left);
     cout<<root->data<<" ";
     printInorder(root->right);
 }
 
+
 int main() {
     int t;
-    scanf("%d",&t);
+    string  tc;
+    getline(cin,tc);
+    t=stoi(tc);
     while(t--)
     {
-        int a,b;
-        scanf("%d %d ",&a,&b);
         string s;
         getline(cin,s);
-        Node* root = buildTree(s);
-        cout<<lca(root,a,b)->data<<endl;
+        // string c;
+        // getline(cin,c);
+    	Node* root = buildTree(s);
+    	
+    	verticalOrder(root);
+        cout << endl;
     }
-    return 0;
+	return 0;
 }
+
+
 // } Driver Code Ends
 
 
-/* A binary tree node
 
+/* A binary tree node has data, pointer to left child
+   and a pointer to right child 
 struct Node
 {
     int data;
@@ -132,24 +137,35 @@ struct Node
 };
  */
 
-/* If n1 and n2 are present, return pointer
-   to LCA. If both are not present, return 
-   NULL. Else if left subtree contains any 
-   of them return pointer to left.*/
+// root: root node of the tree
 
-Node* lca(Node* root ,int n1 ,int n2 )
+void verticalOrder(Node *root)
 {
     if(root == NULL)
-        return NULL;
-        
-    if(root->data == n1 || root->data == n2)
-        return root;
+        return;
     
-    Node *left_lca = lca(root->left, n1, n2);
-    Node *right_lca = lca(root->right, n1, n2);
+    queue<pair<Node *,int>> q;
+    map<int, vector <int>> m;
     
-    if(left_lca != NULL && right_lca != NULL)
-        return root;
+    q.push({root,0});
+    
+    while(!q.empty())
+    {
+        pair<Node *,int> temp = q.front();
+        q.pop();
         
-    return left_lca == NULL ? right_lca : left_lca;
+        m[temp.second].push_back(temp.first->data);
+        
+        if(temp.first->left != NULL)
+            q.push({temp.first->left,temp.second-1});
+        
+        if(temp.first->right != NULL)
+            q.push({temp.first->right,temp.second+1});
+    }
+    
+    for(auto it=m.begin(); it!=m.end(); it++)
+    {
+        for(int i=0; i < it->second.size(); i++)
+            cout<<it->second[i]<<" ";
+    }
 }

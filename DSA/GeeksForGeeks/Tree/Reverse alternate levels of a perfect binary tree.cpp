@@ -2,14 +2,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Tree Node
 struct Node
 {
     int data;
-    Node* left;
-    Node* right;
+    struct Node *left;
+    struct Node *right;
 };
-Node * lca(Node* root,int n1,int n2);
 // Utility function to create a new Tree Node
 Node* newNode(int val)
 {
@@ -17,139 +15,143 @@ Node* newNode(int val)
     temp->data = val;
     temp->left = NULL;
     temp->right = NULL;
-
+    
     return temp;
 }
-
-
 // Function to Build Tree
 Node* buildTree(string str)
-{
+{   
     // Corner Case
     if(str.length() == 0 || str[0] == 'N')
-        return NULL;
-
-    // Creating vector of strings from input
+            return NULL;
+    
+    // Creating vector of strings from input 
     // string after spliting by space
     vector<string> ip;
-
+    
     istringstream iss(str);
     for(string str; iss >> str; )
         ip.push_back(str);
-
-    // for(string i:ip)
-    //     cout<<i<<" ";
-    // cout<<endl;
+        
     // Create the root of the tree
     Node* root = newNode(stoi(ip[0]));
-
+        
     // Push the root to the queue
     queue<Node*> queue;
     queue.push(root);
-
+        
     // Starting from the second element
     int i = 1;
     while(!queue.empty() && i < ip.size()) {
-
+            
         // Get and remove the front of the queue
         Node* currNode = queue.front();
         queue.pop();
-
+            
         // Get the current node's value from the string
         string currVal = ip[i];
-
+            
         // If the left child is not null
         if(currVal != "N") {
-
+                
             // Create the left child for the current node
             currNode->left = newNode(stoi(currVal));
-
+                
             // Push it to the queue
             queue.push(currNode->left);
         }
-
+            
         // For the right child
         i++;
         if(i >= ip.size())
             break;
         currVal = ip[i];
-
+            
         // If the right child is not null
         if(currVal != "N") {
-
+                
             // Create the right child for the current node
             currNode->right = newNode(stoi(currVal));
-
+                
             // Push it to the queue
             queue.push(currNode->right);
         }
         i++;
     }
-
+    
     return root;
 }
 
-// Function for Inorder Traversal
-void printInorder(Node* root)
+void reverseAlternate(struct Node *root);
+void inorder(Node * node)
 {
-    if(!root)
+    if(node==NULL)
         return;
-
-    printInorder(root->left);
-    cout<<root->data<<" ";
-    printInorder(root->right);
+    
+    inorder(node->left);
+    cout<<node->data<<" ";
+    inorder(node->right);
 }
 
-int main() {
+int main()
+{
+
     int t;
-    scanf("%d",&t);
+	scanf("%d ",&t);
     while(t--)
     {
-        int a,b;
-        scanf("%d %d ",&a,&b);
         string s;
-        getline(cin,s);
+		getline(cin,s);
         Node* root = buildTree(s);
-        cout<<lca(root,a,b)->data<<endl;
+        reverseAlternate(root);
+        inorder(root);
+        cout<<endl;
     }
-    return 0;
-}
-// } Driver Code Ends
+    return 1;
+}// } Driver Code Ends
 
 
-/* A binary tree node
-
+/* A binary tree Node
 struct Node
 {
     int data;
-    struct Node* left;
-    struct Node* right;
-    
-    Node(int x){
-        data = x;
-        left = right = NULL;
-    }
-};
- */
+    Node* left, * right;
+}; */
 
-/* If n1 and n2 are present, return pointer
-   to LCA. If both are not present, return 
-   NULL. Else if left subtree contains any 
-   of them return pointer to left.*/
-
-Node* lca(Node* root ,int n1 ,int n2 )
+void swapnodes(Node** l, Node** r)
 {
-    if(root == NULL)
-        return NULL;
+    Node* t;
+    t = *l;
+    *l = *r;
+    *r = t;
+}
+
+void util(Node* l,Node *r,int lvl)
+{
+    if(l==NULL or r==NULL)
+        return;
         
-    if(root->data == n1 || root->data == n2)
-        return root;
+    if(lvl%2==1)
+    {
+        swapnodes(&l->left, &r->left);
+        swapnodes(&l->right, &r->right);
+    }
+    else
+    {
+        swapnodes(&l->left, &r->right);
+        swapnodes(&l->right, &r->left);
+    }
     
-    Node *left_lca = lca(root->left, n1, n2);
-    Node *right_lca = lca(root->right, n1, n2);
-    
-    if(left_lca != NULL && right_lca != NULL)
-        return root;
+    util(l->left, r->right,lvl+1);
+    util(l->right, r->left,lvl+1);
+}
+
+void reverseAlternate(Node *root)
+{
+    if(!root)
+        return;
         
-    return left_lca == NULL ? right_lca : left_lca;
+    swapnodes(&root->left, &root->right);
+    
+    util(root->left, root->right, 1);
 }

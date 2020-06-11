@@ -9,7 +9,8 @@ struct Node
     Node* left;
     Node* right;
 };
-Node * lca(Node* root,int n1,int n2);
+void levelOrder(struct Node* node);
+
 // Utility function to create a new Tree Node
 Node* newNode(int val)
 {
@@ -89,35 +90,25 @@ Node* buildTree(string str)
     return root;
 }
 
-// Function for Inorder Traversal
-void printInorder(Node* root)
-{
-    if(!root)
-        return;
-
-    printInorder(root->left);
-    cout<<root->data<<" ";
-    printInorder(root->right);
-}
 
 int main() {
     int t;
-    scanf("%d",&t);
+    scanf("%d ",&t);
     while(t--)
     {
-        int a,b;
-        scanf("%d %d ",&a,&b);
         string s;
         getline(cin,s);
         Node* root = buildTree(s);
-        cout<<lca(root,a,b)->data<<endl;
+
+        levelOrder(root);
+        cout<<endl;
     }
     return 0;
 }
 // } Driver Code Ends
 
 
-/* A binary tree node
+/* A binary tree Node
 
 struct Node
 {
@@ -132,24 +123,32 @@ struct Node
 };
  */
 
-/* If n1 and n2 are present, return pointer
-   to LCA. If both are not present, return 
-   NULL. Else if left subtree contains any 
-   of them return pointer to left.*/
-
-Node* lca(Node* root ,int n1 ,int n2 )
+//You are required to complete this method
+void levelOrder(Node* root)
 {
     if(root == NULL)
-        return NULL;
+        return;
         
-    if(root->data == n1 || root->data == n2)
-        return root;
+    queue<Node *> q;
+    q.push(root);
     
-    Node *left_lca = lca(root->left, n1, n2);
-    Node *right_lca = lca(root->right, n1, n2);
-    
-    if(left_lca != NULL && right_lca != NULL)
-        return root;
+    while(!q.empty())
+    {
+        int qsize = q.size();
         
-    return left_lca == NULL ? right_lca : left_lca;
+        while(qsize--)
+        {
+            Node *temp = q.front();
+            q.pop();
+            
+            cout<<temp->data<<" ";
+            
+            if(temp->left != NULL)
+                q.push(temp->left);
+            
+            if(temp->right != NULL)
+                q.push(temp->right);
+        }
+        cout<<"$ ";
+    }
 }
