@@ -12,7 +12,7 @@ These are my solutions to practice DSA problems and month long challenges on [Le
 | Dynamic Programming | [Link]() | [Solutions]()|
 | String | [Link]() | [Solutions]()|
 | Math | [Link]() | [Solutions]()|
-| Tree | [Link]() | [Solutions]()|
+| Tree | [Link](https://leetcode.com/tag/tree/) | [Solutions](https://github.com/iamishansharma/Placement-Preparation/tree/master/DSA/LeetCode/Tree)|
 | Depth-First Search | [Link]() | [Solutions]()|
 | Hash-Table | [Link]() | [Solutions]()|
 | Binary Search | [Link]() | [Solutions]()|
