@@ -1,30 +1,33 @@
-// https://www.interviewbit.com/problems/largest-number/
-
-bool comp(int a, int b)
+bool comp(string a, string b)
 {
-    return to_string(a) + to_string(b) > to_string(b) + to_string(a);
+    return a+b > b+a;    
 }
 
 string Solution::largestNumber(const vector<int> &A) 
 {
     int n = A.size();
-    vector<int> v;
-
+    
+    vector<string> nums(n);
+    
+    int count_zeros = 0;
+    
     for(int i=0; i<n; i++)
     {
-        int x = A[i];
-        v.push_back(x);
+        nums[i] = to_string(A[i]);
+        
+        if(A[i] == 0)
+            count_zeros++;
     }
-
-    sort(v.begin(),v.end(),comp);
-
-    if(v[0] == 0)
+    
+    if(count_zeros == n)
         return "0";
     
-    string s = to_string(v[0]);
+    sort(nums.begin(), nums.end(), comp);
     
-    for(int i=1;i<n;i++)
-        s.append(to_string(v[i]));
+    string ans = "";
+    
+    for(int i=0; i<n; i++)
+        ans += nums[i];
         
-    return s;
+    return ans;
 }

@@ -1,20 +1,63 @@
-// https://www.interviewbit.com/problems/add-one-to-number/
-
-vector<int> Solution::plusOne(vector<int> &v) 
+vector<int> Solution::plusOne(vector<int> &A) 
 {
-    while(v[0]==0 && v.size() > 0)
+    A[A.size()-1]++;
+
+    int lastDigit=0;
+    int firstDigit=0;
+    int i=0;
+
+    if(A.size() == 1 && A[0]>9)
     {
-        v.erase(v.begin());
+        firstDigit =   A[0]/10;
+        lastDigit = A[0]%10;
+        
+        A[0] = lastDigit;
+        A.insert(A.begin(),firstDigit);
     }
-    for(int i = v.size() - 1; i >= 0; i--) 
-    { 
-        if(v[i] != 9) 
+    else
+    {   
+        i=A.size()-1;
+        lastDigit=0;
+        firstDigit=0;
+        
+        while(i>0)
         {
-            v[i]++;
-            return v;
-        } 
-        v[i] = 0;
+            if(firstDigit>0)
+            {
+                A[i] = A[i] + firstDigit;
+                firstDigit=0;
+            }
+            if(A[i]>9)
+            {
+                firstDigit =   A[i]/10;
+                lastDigit = A[i]%10;
+                
+                A[i] = lastDigit;
+            }
+            if(firstDigit == 0)
+            {
+                break;
+            }
+            i--;
+        }
+        if(firstDigit>0)
+        {
+            A[0] = A[0] + firstDigit;
+            if(A[0]>9)
+            {
+                firstDigit =   A[0]/10;
+                lastDigit = A[0]%10;
+                
+                A[0] = lastDigit;
+                A.insert(A.begin(),firstDigit);
+            }
+        }
     }
-    v.insert(begin(v), 1);
-    return v;
+
+    i=0;
+    
+    while(A[i] == 0)
+        A.erase(A.begin() + i);
+        
+    return A;
 }

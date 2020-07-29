@@ -1,18 +1,15 @@
-// https://www.interviewbit.com/problems/max-sum-contiguous-subarray/
-
-int Solution::maxSubArray(const vector<int> &v) 
+int Solution::maxSubArray(const vector<int> &A) 
 {
-    int n=v.size();
-    int sum=0;
-    int m=INT_MIN;
+    int n = A.size();
     
-    for(int i=0;i<n;i++)
+    int curr_sum = A[0];
+    int max_sum = A[0];
+    
+    for(int i=1; i<n; i++)
     {
-        sum += v[i];
-        m = max(sum,m);
-        
-        if(sum<0)
-            sum = 0;
+        curr_sum = max(A[i], curr_sum + A[i]);
+        max_sum = max(max_sum, curr_sum);
     }
-    return m;
+    
+    return max_sum;
 }

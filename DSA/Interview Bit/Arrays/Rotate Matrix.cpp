@@ -1,16 +1,10 @@
-// https://www.interviewbit.com/problems/rotate-matrix/
-
-void Solution::rotate(vector<vector<int> > &A) 
+void Solution::rotate(vector<vector<int> > &mat) 
 {
-    int n=A.size();
+    for(int i=0; i<mat.size(); i++)
+        for(int j=i+1; j<mat[i].size(); j++)
+            swap(mat[i][j], mat[j][i]);
     
-    for(int i=0;i<n;i++)
-        for(int j=0;j<n;j++)
-            if(i>j) 
-                swap(A[i][j],A[j][i]);
-    
-    for(int i=0;i<n;i++)
-        for(int j=0;j<n;j++)
-            if(j<n/2) 
-                swap(A[i][j],A[i][n-j-1]);
+    for(int i=0; i<mat.size(); i++)
+        for(int j=0; j<mat[i].size()/2; j++)
+            swap(mat[i][j], mat[i][mat[i].size()-1-j]);
 }
