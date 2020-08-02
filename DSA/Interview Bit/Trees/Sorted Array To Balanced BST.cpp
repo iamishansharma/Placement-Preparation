@@ -1,7 +1,4 @@
 /**
-
-https://www.interviewbit.com/problems/sorted-array-to-balanced-bst/
-
  * Definition for binary tree
  * struct TreeNode {
  *     int val;
@@ -10,21 +7,24 @@ https://www.interviewbit.com/problems/sorted-array-to-balanced-bst/
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-TreeNode* sortedBST(const vector<int> &A,int s,int e)
+TreeNode* helper(const vector<int> &num, int low, int high) 
 {
-    if(s>e) 
+    if (low > high)
         return NULL;
-        
-    int mid = (s+e)/2;
     
-    TreeNode* r = new TreeNode(A[mid]);
-    r->left = sortedBST(A,s,mid-1);
-    r->right = sortedBST(A,mid+1,e);
-    
-    return r;
+    if(low == high)
+        return new TreeNode(num[low]);
+
+    int mid = (low + high) / 2;
+    TreeNode* node = new TreeNode(num[mid]);
+    node->left = helper(num, low, mid - 1);
+    node->right = helper(num, mid + 1, high);
+    return node;
 }
-TreeNode* Solution::sortedArrayToBST(const vector<int> &A) 
+TreeNode* Solution::sortedArrayToBST(const vector<int> &num) 
 {
-    int s=0, e=A.size()-1;
-    return sortedBST(A,s,e);
+    if (num.size() == 0) 
+        return NULL;
+    
+    return helper(num, 0, ((int)num.size()) - 1);
 }

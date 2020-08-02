@@ -9,37 +9,50 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-queue<int> q;
 
-void buildQueue(TreeNode *root)
-{
-    if(root == NULL)
-        return;
-    
-    buildQueue(root->left);
-    q.push(root->val);
-    buildQueue(root->right);
-}
+/* 
+
+    Space: O(h) not O(n)
+ß
+*/
+
+stack<TreeNode*> s;
+
 BSTIterator::BSTIterator(TreeNode *root) 
 {
-    buildQueue(root);
+    while(!s.empty())
+        s.pop();
+        
+    TreeNode *c=root;
+    while(c)
+        s.push(c),c=c->left;
 }
 
 /** @return whether we have a next smallest number */
 bool BSTIterator::hasNext() 
 {
-    return(!q.empty());
+    if(!s.empty())
+        return true;
+    else
+        return false;
 }
 
 /** @return the next smallest number */
 int BSTIterator::next() 
 {
-    if(!q.empty())
+    if(!s.empty())
     {
-        int x = q.front();
-        q.pop();
-        return x;
+        int v = s.top()->val;
+        TreeNode *c = s.top()->right;
+        s.pop();
+        
+        while(c)
+            s.push(c),c=c->left;
+        
+        return v;
     }
+    else
+        return -1;
 }
 
 /**
