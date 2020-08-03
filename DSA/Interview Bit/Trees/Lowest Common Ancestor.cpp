@@ -10,26 +10,48 @@ https://www.interviewbit.com/problems/least-common-ancestor/
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-bool search(TreeNode* root,int a)
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+bool find(TreeNode *root, int num)
 {
     if(root == NULL)
         return false;
-        
-    if(root->val == a)
+    
+    if(root->val == num)
         return true;
-        
-    return (search(root->left,a) || search(root->right,a));
+    
+    return find(root->left, num) || find(root->right, num);
 }
-int Solution::lca(TreeNode* a, int b, int c) 
+TreeNode *getLCA(TreeNode *root, int num1, int num2)
 {
-    if(!(search(a,b) && search(a,c)))
+    if(root == NULL)
+        return NULL;
+    
+    if(root->val == num1 || root->val == num2)
+        return root;
+    
+    TreeNode *leftLCA = getLCA(root->left, num1, num2);
+    TreeNode *rightLCA = getLCA(root->right, num1, num2);
+    
+    if(leftLCA != NULL && rightLCA != NULL)
+        return root;
+    
+    return leftLCA == NULL ? rightLCA : leftLCA;
+}
+int Solution::lca(TreeNode* root, int num1, int num2) 
+{
+    if(find(root, num1) == false || find(root, num2) == false)
         return -1;
     
-    if(search(a->left,b) && search(a->left,c))
-        return lca(a->left,b,c);
-        
-    if(search(a->right,b) && search(a->right,c))
-        return lca(a->right,b,c);
-        
-    return a->val;
+    TreeNode *lcanode = NULL;
+    lcanode = getLCA(root, num1, num2);
+    return lcanode->val;
 }
+

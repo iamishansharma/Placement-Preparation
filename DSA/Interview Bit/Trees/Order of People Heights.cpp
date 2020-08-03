@@ -1,70 +1,91 @@
-// https://www.interviewbit.com/problems/order-of-people-heights/
-
-struct Node
+void buildSegTree(vector<int> &Tree,vector<int> &arr,int index,int start,int end)
 {
-    int data;
-    Node* left;
-    Node* right;
-    int l;
-    
-    Node(int d, int size)
+    if(start==end)
     {
-        data = d;
-        l = size;
-        left = right = NULL;
+        Tree[index]=arr[start];
+        return;
     }
-};
-
-Node* insert(Node* root, pair<int, int> &p)
+    int mid=(start+end)/2;
+    buildSegTree( Tree,arr,2*index+1,start,mid);
+    buildSegTree( Tree,arr,2*index+2,mid+1,end);
+    Tree[index]=Tree[2*index+1] + Tree[2*index+2] ; 
+}
+void update(vector<int> &Tree,vector<int> &arr,int index,int start,int end,int x,int val)
 {
-    if(!root)
-        return new Node(p.first, p.second);
-        
-    if(p.second<=root->l)
+    if(start==end)
     {
-        (root->l)++;
-        root->left = insert(root->left, p);
+        Tree[index]=val;
+        arr[x]=val;
+        return;
+    }
+    int mid=(start+end)/2;
+    if(x<=mid)
+    {
+        update(Tree,arr,2*index+1,start,mid,x,val);
     }
     else
     {
-        p.second-=(root->l+1);
-        root->right = insert(root->right, p);
+        update(Tree,arr,2*index+2,mid+1,end,x,val);
     }
-    return root;
+    Tree[index]=Tree[2*index+1] + Tree[2*index+2];
 }
-
-void inorder(Node* root, vector<int> &vec)
+int query(vector<int> &Tree,vector<int> &arr,int index,int start,int end, int L ,int R)
 {
-    if(!root)
-        return;
-        
-    inorder(root->left, vec);
-    vec.push_back(root->data);
-    inorder(root->right, vec);
+    if(start>R or end<L)
+    {
+        return 0;
+    }
+    if(L<=start and end<=R)
+    {   
+        return Tree[index];
+    }
+    int mid=(start+end)/2;
+    int q1=query(Tree,arr,2*index+1,start,mid,L,R);
+    int q2=query(Tree,arr,2*index+2,mid+1,end,L,R);
+    return q1+q2;
 }
-
-bool mycomp(pair<int, int> &a, pair<int, int> &b)
+int index(vector<int> &Tree,vector<int> &arr,int K)
 {
-    return a.first > b.first;
+    int N=arr.size();
+    int start=0;
+    int end=N-1;
+    int mid;
+    while(start<end)
+    {
+        mid=(start+end)/2;
+        int sum=query(Tree,arr,0,0,N-1,0,mid);
+        if(K==sum)
+        {
+            start=mid+1;
+        }
+        else if(K>sum)
+        {
+            start=mid+1;
+        }
+        else
+        {
+            end=mid;
+        }
+    }
+    return start;
 }
-
 vector<int> Solution::order(vector<int> &A, vector<int> &B) 
 {
-    vector<pair<int, int> > vec;
-    
-    for(int i = 0; i<A.size(); i++)
-        vec.push_back({A[i], B[i]});
-        
-    sort(vec.begin(), vec.end(), mycomp);
-    
-    Node* root = new Node(vec[0].first, vec[0].second);
-    
-    for(int i = 1; i<vec.size(); i++)
-        insert(root, vec[i]);
-        
-    vector<int> ans;
-    
-    inorder(root, ans);
-    
+    int N=A.size();
+    map<int,int> hash;
+    for(int i=0;i<N;i++)
+    {
+        hash[A[i]]=B[i];
+    }
+    vector<int> pos(N,1);
+    vector<int> ans(N,-1);
+    vector<int> Tree(4*N,0);
+    buildSegTree(Tree,pos,0,0,N-1);
+    for(auto it:hash)
+    {
+        int ix=index(Tree,pos,it.second);
+        ans[ix]=it.first;
+        update(Tree,pos,0,0,N-1,ix,0);
+    }
     return ans;
 }

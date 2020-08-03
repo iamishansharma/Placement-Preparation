@@ -1,7 +1,4 @@
 /**
-
-https://www.interviewbit.com/problems/construct-binary-tree-from-inorder-and-preorder/
-
  * Definition for binary tree
  * struct TreeNode {
  *     int val;
@@ -10,28 +7,28 @@ https://www.interviewbit.com/problems/construct-binary-tree-from-inorder-and-pre
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-TreeNode *build(vector<int> &a, vector<int> &b,unordered_map<int,int> &m, int &pre, int start, int end)
+TreeNode* inpre(vector<int> &in, vector<int> &pre, int &preindex, int start, int end, unordered_map<int,int> &m)
 {
-    if(start>end) 
+    if(start > end)
         return NULL;
-        
-    int curr = a[pre++];
     
-    TreeNode *root = new TreeNode(curr);
-    root->left = build(a,b,m,pre,start,m[curr]-1);
-    root->right = build(a,b,m,pre,m[curr]+1,end);
-    return root;
+    TreeNode *temp = new TreeNode(pre[preindex]);
+    int i = m[pre[preindex]];
+    preindex++;
+    
+    temp->left = inpre(in, pre, preindex, start, i-1, m);
+    temp->right = inpre(in, pre, preindex, i+1, end, m);
+    
+    return temp;
 }
 
-TreeNode* Solution::buildTree(vector<int> &a, vector<int> &b) 
+TreeNode* Solution::buildTree(vector<int> &pre, vector<int> &in) 
 {
     unordered_map<int,int> m;
     
-    for(int i=0; i<a.size(); i++)
-    {
-        m[b[i]] = i;
-    }
+    for(int i=0; i<in.size(); i++)
+        m[in[i]] = i;
     
-    int x = 0;
-    return build(a,b,m,x,0,a.size()-1);
+    int preindex = 0;
+    return inpre(in, pre, preindex, 0, pre.size()-1, m);
 }

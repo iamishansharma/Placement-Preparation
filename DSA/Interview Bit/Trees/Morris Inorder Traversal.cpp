@@ -1,7 +1,4 @@
 /**
-
-https://www.interviewbit.com/problems/inorder-traversal/
-
  * Definition for binary tree
  * struct TreeNode {
  *     int val;
@@ -10,29 +7,29 @@ https://www.interviewbit.com/problems/inorder-traversal/
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-vector<int> Solution::inorderTraversal(TreeNode* A) 
+vector<int> Solution::inorderTraversal(TreeNode* root) 
 {
     stack<TreeNode*> st;
-    vector<int> res;
+    vector<int> ans;
     
     while(true)
     {
-        if(A != NULL)
+        if(root != NULL)
         {
-            st.push(A);
-            A = A->left;
+            st.push(root);
+            root = root->left;
         } 
         else 
         {
             if(st.empty())
                 break;
                 
-            A = st.top();
+            root = st.top();
             st.pop();
-            res.push_back(A->val);
-            A = A->right;
+            ans.push_back(root->val);
+            root = root->right;
         }
     }
 
-    return res;
+    return ans;
 }

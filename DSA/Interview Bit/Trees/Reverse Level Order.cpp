@@ -7,52 +7,45 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-vector<vector<int>> Solution::zigzagLevelOrder(TreeNode* root) 
+vector<int> Solution::solve(TreeNode* root) 
 {
     if(root == NULL)
-        return vector<vector<int>> ();
-    
-    vector<vector<int>> ans;
+        return {};
     
     queue<TreeNode *> q;
     q.push(root);
+    stack<vector<int>> s;
     
-    int idx = 0;
-
     while(!q.empty())
     {
         int qsize = q.size();
-        
-        vector<int> each;
-        stack<int> s;
+        vector<int> arr;
         
         while(qsize--)
         {
             TreeNode *temp = q.front();
             q.pop();
             
-            if(idx % 2 == 0)
-                each.push_back(temp->val);
-            else
-                s.push(temp->val);
+            arr.push_back(temp->val);
             
             if(temp->left != NULL)
                 q.push(temp->left);
-            
             if(temp->right != NULL)
                 q.push(temp->right);
         }
-        
-        while(!s.empty())
-        {
-            each.push_back(s.top());
-            s.pop();
-        }
-        
-        ans.push_back(each);
-        
-        idx++;
+        s.push(arr);
     }
-
+    
+    vector<int> ans;
+    
+    while(!s.empty())
+    {
+        vector<int> arr = s.top();
+        s.pop();
+        
+        for(int i=0; i<arr.size(); i++)
+            ans.push_back(arr[i]);
+    }
+    
     return ans;
 }

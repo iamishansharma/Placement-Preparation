@@ -1,7 +1,4 @@
 /**
-
-https://www.interviewbit.com/problems/flatten-binary-tree-to-linked-list/
-
  * Definition for binary tree
  * struct TreeNode {
  *     int val;
@@ -10,15 +7,13 @@ https://www.interviewbit.com/problems/flatten-binary-tree-to-linked-list/
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-TreeNode *pre;
-
-void change(TreeNode *root)
+void change(TreeNode *root, TreeNode *&pre)
 {
-    if(!root)
+    if(root == NULL)
         return;
     
-    change(root->right);
-    change(root->left);
+    change(root->right, pre);
+    change(root->left, pre);
     
     root->right = pre;
     root->left = NULL;
@@ -26,7 +21,7 @@ void change(TreeNode *root)
 }
 TreeNode* Solution::flatten(TreeNode* root) 
 {
-    pre=NULL;
-    change(root);
+    TreeNode *pre = NULL;
+    change(root, pre);
     return root;
 }
