@@ -1,7 +1,4 @@
 /**
-
-https://www.interviewbit.com/problems/palindrome-list/
-
  * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
@@ -9,51 +6,87 @@ https://www.interviewbit.com/problems/palindrome-list/
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-int Solution::lPalin(ListNode* A)
+void reverse(ListNode **head)
 {
-    ListNode* ptr=A;
+    ListNode *prev = NULL;
+    ListNode *curr = *head;
+    ListNode *next = NULL;
     
-    int n=0;
-    
-    while(ptr!=NULL)
+    while(curr != NULL)
     {
-        n++;
-        ptr=ptr->next;
-    }
-    
-    ptr=A;
-    int idx=n/2;
-    
-    while(idx--)
-    {
-        ptr=ptr->next;
-    }
-    
-    ListNode *cur=ptr;
-    ListNode *next=NULL, *prev=NULL;
-    
-    while(cur != NULL)
-    {
-        next=cur->next;
-        cur->next=prev;
+        next = curr->next;
+        curr->next = prev;
         
-        if(next==NULL)
-            break;
-            
-        prev=cur;
-        cur=next;
+        prev = curr;
+        curr = next;
     }
+    *head = prev;
+}
+
+int compare(ListNode *head1, ListNode *head2)
+{
+    ListNode *temp1 = head1;
+    ListNode *temp2 = head2;
     
-    int ok=1;
-    idx=n/2;
-    
-    while(idx--)
+    while(temp1 != NULL && temp2 != NULL)
     {
-        if(A->val != cur->val)
+        if(temp1->val != temp2->val)
             return 0;
-            
-        A = A->next;
-        cur = cur->next;
+        
+        temp1 = temp1->next;
+        temp2 = temp2->next;
     }
-    return 1;
+    
+    if(temp1 == NULL && temp2 == NULL)
+        return 1;
+    else
+        return 0;
+}
+
+int Solution::lPalin(ListNode* head) 
+{
+    if(head == NULL || head->next == NULL)
+        return 1;
+    
+    ListNode *slow = head;
+    ListNode *fast = head;
+    ListNode *prev = head;
+    ListNode *midnode = NULL;
+    
+    int ans = 0;
+    
+    while(fast != NULL && fast->next != NULL)
+    {
+        fast = fast->next->next;
+        prev = slow;
+        slow = slow->next;
+    }
+    
+    if(fast != NULL) 
+    {
+        // this becomes true when list has 
+        // odd elements hence skipping the mid node
+        
+        midnode = slow;
+        slow = slow->next;
+    }
+    
+    ListNode *secondhalf = slow;
+    prev->next = NULL;
+    
+    reverse(&secondhalf); // reverse the second half of the list
+    
+    ans = compare(head, secondhalf);
+    
+    reverse(&secondhalf); // reverse the second half list again to make it normal
+    
+    if(midnode != NULL) // odd list
+    {
+        prev->next = midnode;
+        midnode->next = secondhalf;
+    }
+    else
+        prev->next = secondhalf;
+        
+    return ans;
 }
