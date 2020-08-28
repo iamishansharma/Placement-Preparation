@@ -10,7 +10,8 @@ using namespace std;
 *   V: number of vertices
 *   adj[]: representation of graph
 */
-bool DFS(int start, vector<int> adj[], vector<bool> &visited, vector<bool> &recSt, int V)
+
+/*bool DFS(int start, vector<int> adj[], vector<bool> &visited, vector<bool> &recSt, int V)
 {
     visited[start] = true;
     recSt[start] = true;
@@ -40,7 +41,45 @@ bool isCyclic(int V, vector<int> adj[])
                 return true;
     
     return false;
+}*/
+
+// Using Modified Kahn's Algorithm for Topological Sorting
+
+bool isCyclic(int V, vector<int> adj[])
+{
+    vector<int> indegree(V, 0);
+    
+    for(int i=0; i<V; i++)
+        for(int j=0; j<adj[i].size(); j++)
+            indegree[adj[i][j]]++;
+    
+    queue<int> q;
+    
+    for(int i=0; i<V; i++)
+        if(indegree[i] == 0)
+            q.push(i);
+            
+    int popcount = 0;
+    
+    while(!q.empty())
+    {
+        int front = q.front();
+        q.pop();
+        popcount++;
+        
+        for(int i=0; i<adj[front].size(); i++)
+        {
+            indegree[adj[front][i]]--;
+            
+            if(indegree[adj[front][i]] == 0)
+                q.push(adj[front][i]);
+        }
+    }
+    
+    return popcount != V;
 }
+
+
 
 // { Driver Code Starts.
 
