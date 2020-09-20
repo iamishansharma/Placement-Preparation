@@ -2,14 +2,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Tree Node
 struct Node
 {
     int data;
-    Node* left;
-    Node* right;
+    struct Node *left;
+    struct Node *right;
 };
-
 // Utility function to create a new Tree Node
 Node* newNode(int val)
 {
@@ -20,7 +18,6 @@ Node* newNode(int val)
     
     return temp;
 }
-
 // Function to Build Tree
 Node* buildTree(string str)
 {   
@@ -85,29 +82,25 @@ Node* buildTree(string str)
     return root;
 }
 
-int getMaxWidth(Node* root);
+bool isBalanced(Node *root);
 
 int main()
 {
+
     int t;
-    cin>>t;
-    getchar();
+	scanf("%d ",&t);
     while(t--)
     {
-        string inp;
-        getline(cin, inp);
-        Node* root = buildTree(inp);
-        
-        cout << getMaxWidth(root) <<endl;
+        string s;
+		getline(cin,s);
+        Node* root = buildTree(s);
+        cout << isBalanced(root) << endl;
     }
-    return 0;
-}
+    return 1;
+}// } Driver Code Ends
 
 
-// } Driver Code Ends
-
-
-/*  Structure of a Binary Tree 
+/* A binary tree node structure
 
 struct Node
 {
@@ -122,31 +115,25 @@ struct Node
 };
  */
 
-/* Function to get the maximum width of a binary tree*/
-int getMaxWidth(Node* root)
+// This function should return tree if passed  tree 
+// is balanced, else false. 
+int height(Node *root)
 {
-    int maxval = INT_MIN;
-    
-    queue<Node *> q;
-    q.push(root);
-    
-    while(!q.empty())
-    {
-        int qsize = q.size();
-        maxval = max(maxval, qsize);
+    if(root == NULL)
+        return 0;
         
-        while(qsize--)
-        {
-            Node *temp = q.front();
-            q.pop();
-            
-            if(temp->left != NULL)
-                q.push(temp->left);
-            if(temp->right != NULL)
-                q.push(temp->right);
-        }
-    }
-    
-    return maxval;
+    return 1 + max(height(root->left), height(root->right));
 }
-
+    
+bool isBalanced(Node *root)
+{
+    if(root == NULL)
+        return true;
+    
+    int diff = abs(height(root->left) - height(root->right));
+    
+    if(diff <= 1)
+        return isBalanced(root->left) && isBalanced(root->right);
+    else
+        return false;
+}
