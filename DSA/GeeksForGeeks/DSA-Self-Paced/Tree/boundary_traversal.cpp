@@ -7,14 +7,14 @@ using namespace std;
 struct Node
 {
     int data;
-    Node* left;
-    Node* right;
+    Node *left;
+    Node *right;
 };
 
 // Utility function to create a new Tree Node
-Node* newNode(int val)
+Node *newNode(int val)
 {
-    Node* temp = new Node;
+    Node *temp = new Node;
     temp->data = val;
     temp->left = NULL;
     temp->right = NULL;
@@ -22,14 +22,13 @@ Node* newNode(int val)
     return temp;
 }
 
-
 void printBoundary(Node *root);
 
 // Function to Build Tree
-Node* buildTree(string str)
+Node *buildTree(string str)
 {
     // Corner Case
-    if(str.length() == 0 || str[0] == 'N')
+    if (str.length() == 0 || str[0] == 'N')
         return NULL;
 
     // Creating vector of strings from input
@@ -37,29 +36,31 @@ Node* buildTree(string str)
     vector<string> ip;
 
     istringstream iss(str);
-    for(string str; iss >> str; )
+    for (string str; iss >> str;)
         ip.push_back(str);
 
     // Create the root of the tree
-    Node* root = newNode(stoi(ip[0]));
+    Node *root = newNode(stoi(ip[0]));
 
     // Push the root to the queue
-    queue<Node*> queue;
+    queue<Node *> queue;
     queue.push(root);
 
     // Starting from the second element
     int i = 1;
-    while(!queue.empty() && i < ip.size()) {
+    while (!queue.empty() && i < ip.size())
+    {
 
         // Get and remove the front of the queue
-        Node* currNode = queue.front();
+        Node *currNode = queue.front();
         queue.pop();
 
         // Get the current node's value from the string
         string currVal = ip[i];
 
         // If the left child is not null
-        if(currVal != "N") {
+        if (currVal != "N")
+        {
 
             // Create the left child for the current node
             currNode->left = newNode(stoi(currVal));
@@ -70,12 +71,13 @@ Node* buildTree(string str)
 
         // For the right child
         i++;
-        if(i >= ip.size())
+        if (i >= ip.size())
             break;
         currVal = ip[i];
 
         // If the right child is not null
-        if(currVal != "N") {
+        if (currVal != "N")
+        {
 
             // Create the right child for the current node
             currNode->right = newNode(stoi(currVal));
@@ -89,18 +91,17 @@ Node* buildTree(string str)
     return root;
 }
 
-
-
-int main() {
+int main()
+{
     int t;
     string tc;
     getline(cin, tc);
-    t=stoi(tc);
-    while(t--)
+    t = stoi(tc);
+    while (t--)
     {
-        string s ,ch;
+        string s, ch;
         getline(cin, s);
-        Node* root = buildTree(s);
+        Node *root = buildTree(s);
 
         printBoundary(root);
         cout << endl;
@@ -108,9 +109,7 @@ int main() {
     return 0;
 }
 
-
 // } Driver Code Ends
-
 
 /* A binary tree Node
 struct Node
@@ -119,73 +118,73 @@ struct Node
     Node* left, * right;
 }; */
 
-void printleaves(Node * root)
+void printleaves(Node *root)
 {
-    if(root==NULL)
+    if (root == NULL)
         return;
-        
+
     printleaves(root->left);
-    
-    if(root->left==NULL && root->right==NULL)
-        cout<<root->data<<" ";
-    
+
+    if (root->left == NULL && root->right == NULL)
+        cout << root->data << " ";
+
     printleaves(root->right);
 }
 
 void printright(Node *root)
 {
-    if(root)
+    if (root)
     {
-        if(root->right)
+        if (root->right)
         {
             printright(root->right);
-            cout<<root->data<<" ";
+            cout << root->data << " ";
         }
-        else if(root->left)
+        else if (root->left)
         {
-            printright(root->left); 
-            cout<<root->data<<" ";
+            printright(root->left);
+            cout << root->data << " ";
         }
     }
     return;
 }
 void printleft(Node *root)
 {
-    if(root)
+    if (root)
     {
-        if(root->left)
+        if (root->left)
         {
-            cout<<root->data<<" ";
+            cout << root->data << " ";
             printleft(root->left);
         }
-        else if(root->right)
+        else if (root->right)
         {
-            cout<<root->data<<" ";
-            printleft(root->right); 
+            cout << root->data << " ";
+            printleft(root->right);
         }
     }
     return;
 }
 void printBoundary(Node *root)
 {
-    if(root==NULL)
-        return ;
-        
-    if(root->left==NULL && root->right==NULL)
+    if (root == NULL)
+        return;
+
+    if (root->left == NULL && root->right == NULL)
     {
-        cout<<root->data<<" ";
+        cout << root->data << " ";
         return;
     }
-    
-    cout<<root->data<<" ";
-    
-    if(root->left)
+
+    cout << root->data << " ";
+
+    if (root->left)
         printleft(root->left);
-        
+
     printleaves(root);
-    
-    if(root->right)
+
+    if (root->right)
         printright(root->right);
-    
+
     return;
 }
