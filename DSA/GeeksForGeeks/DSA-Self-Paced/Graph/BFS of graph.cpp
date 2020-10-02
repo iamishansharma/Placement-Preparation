@@ -33,30 +33,29 @@ int main()
 *  g[]: adj list of the graph
 *  N : number of vertices
 */
-vector<int> bfs(vector<int> g[], int N)
+vector<int> bfs(vector<int> adj[], int N)
 {
-    int s = 0;
-    vector<bool> visited(N, false);
-
     vector<int> ans;
 
+    vector<bool> visited(N);
+    visited[0] = true;
     queue<int> q;
-    q.push(s);
-    visited[s] = true;
+    q.push(0);
 
     while (!q.empty())
     {
-        int node = q.front();
+        int front = q.front();
         q.pop();
+        ans.push_back(front);
 
-        ans.push_back(node);
-
-        for (auto i : g[node])
-            if (!visited[i])
+        for (int i = 0; i < adj[front].size(); i++)
+        {
+            if (!visited[adj[front][i]])
             {
-                visited[i] = true;
-                q.push(i);
+                visited[adj[front][i]] = true;
+                q.push(adj[front][i]);
             }
+        }
     }
 
     return ans;

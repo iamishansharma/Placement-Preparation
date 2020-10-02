@@ -9,71 +9,42 @@ using namespace std;
 *  g[]: array of vectors to represent graph
 *  V: number of vertices
 */
-
-// Recursive DFS
-
-/*bool isCyclicUtil(vector<int> g[],bool* visited,int sv,int parent)
+bool DFS(int start, vector<int> g[], vector<bool> &visited, int parent)
 {
-    visited[sv] = true;
-    
-    for(int i=0;i<g[sv].size();i++)
+    visited[start] = true;
+
+    for (int i = 0; i < g[start].size(); i++)
     {
-        if(visited[g[sv][i]] == false)
+        if (!visited[g[start][i]])
         {
-            if(isCyclicUtil(g,visited,g[sv][i],sv))
+            if (DFS(g[start][i], g, visited, start))
                 return true;
         }
-        else if(parent != g[sv][i])
-        {
+        else if (parent != g[start][i])
             return true;
-        }
     }
     return false;
 }
-bool isCyclic(vector<int> g[], int V)
+
+bool BFS(int start, vector<int> g[], vector<bool> &visited, int parent)
 {
-    bool* visited = new bool [V];
-    
-    for(int i=0; i<V; i++)
-    {
-        visited[i] = false;
-    }
-    
-    for(int i=0; i<V; i++)
-    {
-        if(visited[i] == false)
-        {
-            if(isCyclicUtil(g,visited,i,-1))
-                return true;
-        }
-    }
-    return false;
-}*/
-
-// Iterative BFS
-
-bool BFS(int start, vector<int> g[], vector<bool> &visited, int V)
-{
-    vector<int> parent(V, -1);
-
-    queue<int> q;
-    q.push(start);
+    queue<pair<int, int>> q;
+    q.push({start, -1});
     visited[start] = true;
 
     while (!q.empty())
     {
-        int u = q.front();
+        pair<int, int> temp = q.front();
         q.pop();
 
-        for (auto v : g[u])
+        for (int i = 0; i < g[temp.first].size(); i++)
         {
-            if (!visited[v])
+            if (!visited[g[temp.first][i]])
             {
-                visited[v] = true;
-                q.push(v);
-                parent[v] = u;
+                visited[g[temp.first][i]] = true;
+                q.push({g[temp.first][i], temp.first});
             }
-            else if (parent[u] != v)
+            else if (temp.second != g[temp.first][i])
                 return true;
         }
     }
@@ -87,7 +58,7 @@ bool isCyclic(vector<int> g[], int V)
 
     for (int i = 0; i < V; i++)
         if (!visited[i])
-            if (BFS(i, g, visited, V))
+            if (BFS(i, g, visited, -1))
                 return true;
 
     return false;

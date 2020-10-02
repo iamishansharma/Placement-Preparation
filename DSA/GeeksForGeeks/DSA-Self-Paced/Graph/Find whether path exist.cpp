@@ -6,62 +6,57 @@ using namespace std;
 
 bool is_possible(vector<vector<int>> &a, int n);
 
-int main() {
+int main()
+{
     int t;
     cin >> t;
-    while (t--) {
+    while (t--)
+    {
         int n;
         cin >> n;
 
         vector<vector<int>> a(MAX, vector<int>(MAX, 0));
         for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++) cin >> a[i][j];
+            for (int j = 0; j < n; j++)
+                cin >> a[i][j];
 
         cout << is_possible(a, n) << endl;
     }
     return 0;
-}// } Driver Code Ends
-
+} // } Driver Code Ends
 
 // User function template for C++
 
-
 // M : input matrix
 // N : size of the matrix
-void dfs(vector <vector <int>> &M,int x,int y,vector <vector <bool>>& vis,int n)
+bool DFS(int i, int j, vector<vector<int>> &mat, vector<vector<bool>> &visited, int N)
 {
-    if(x>=n || x<0 || y>=n || y<0 || vis[x][y] == true || M[x][y] == 0)
-        return;
-        
-    vis[x][y] = true;
-    
-    dfs(M,x+1,y,vis,n);
-    dfs(M,x-1,y,vis,n);
-    dfs(M,x,y+1,vis,n);
-    dfs(M,x,y-1,vis,n);
+    if (i < 0 || j < 0 || i >= N || j >= N || mat[i][j] == 0 || visited[i][j] == true)
+        return false;
+
+    visited[i][j] = true;
+
+    if (mat[i][j] == 2)
+        return true;
+    else
+        return DFS(i + 1, j, mat, visited, N) || DFS(i - 1, j, mat, visited, N) || DFS(i, j + 1, mat, visited, N) || DFS(i, j - 1, mat, visited, N);
 }
-bool is_possible(vector <vector <int>> &M, int n) 
+
+bool is_possible(vector<vector<int>> &mat, int N)
 {
-    vector <vector <bool>> vis(n,vector <bool>(n,false));
-    int a,b,dx,dy;
-    
-    for(int i=0;i<n;i++)
+    vector<vector<bool>> visited(N, vector<bool>(N, false));
+
+    for (int i = 0; i < N; i++)
     {
-        for(int j=0;j<n;j++)
+        for (int j = 0; j < N; j++)
         {
-            if(M[i][j] == 1)
+            if (mat[i][j] == 1)
             {
-                a=i;
-                b=j;
-            }
-            else if(M[i][j]==2)
-            {
-                dx=i;
-                dy=j;
+                if (DFS(i, j, mat, visited, N))
+                    return true;
             }
         }
     }
-    
-    dfs(M,a,b,vis,n);
-    return vis[dx][dy];
+
+    return false;
 }

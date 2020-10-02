@@ -11,50 +11,40 @@ N : number of vertices
 
 return a list containing the DFS traversal of the given graph
 */
-void dfsrec(int s, vector<int> g[], vector<bool> vis, vector<int> &ans)
+void recursive(int start, vector<int> g[], int N, vector<int> &ans, vector<bool> &visited)
 {
-    vis[s] = true;
+    visited[start] = true;
+    ans.push_back(start);
 
-    ans.push_back(s);
-
-    vector<int>::iterator i;
-
-    for (i = g[s].begin(); i != g[s].end(); ++i)
+    for (int i = 0; i < g[start].size(); i++)
     {
-        if (!vis[*i])
-            dfsrec(*i, g, vis, ans);
+        if (!visited[g[start][i]])
+        {
+            visited[g[start][i]] = true;
+            recursive(g[start][i], g, N, ans, visited);
+        }
     }
 }
-
-vector<int> dfs(vector<int> g[], int N)
+void iterative(int start, vector<int> g[], int N, vector<int> &ans, vector<bool> &visited)
 {
+    stack<int> s;
+    s.push(start);
 
-    // Iterative -
+    ans.push_back(start);
+    visited[start] = true;
 
-    int s = 0;
-    vector<bool> vis(N, false);
-    vector<int> ans;
-
-    stack<int> st;
-    st.push(s);
-
-    ans.push_back(s);
-    vis[s] = true;
-
-    while (!st.empty())
+    while (!s.empty())
     {
-        int top = st.top();
+        int top = s.top();
         int flag = 0;
 
         for (int i = 0; i < g[top].size(); i++)
         {
-            if (!vis[g[top][i]])
+            if (!visited[g[top][i]])
             {
-                st.push(g[top][i]);
-
                 ans.push_back(g[top][i]);
-
-                vis[g[top][i]] = true;
+                visited[g[top][i]] = true;
+                s.push(g[top][i]);
 
                 flag = 1;
 
@@ -63,19 +53,19 @@ vector<int> dfs(vector<int> g[], int N)
         }
 
         if (!flag)
-            st.pop();
+            s.pop();
     }
+}
+
+vector<int> dfs(vector<int> g[], int N)
+{
+    vector<int> ans;
+    vector<bool> visited(N);
+
+    recursive(0, g, N, ans, visited);
+    //iterative(0, g, N, ans, visited);
 
     return ans;
-
-    /* Recursive
-    
-    vector<bool> vis(N, false);
-    vector<int> ans;
-    
-    dfsrec(0, g, vis, ans);
-    
-    return ans;*/
 }
 
 // { Driver Code Starts.
