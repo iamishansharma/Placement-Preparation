@@ -38,12 +38,10 @@ int spanningTree(int V, int E, vector<vector<int>> &graph)
 {
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
-    pq.push({0, 0});
+    pq.push(make_pair(0, 0));
 
     int sum = 0;
-
-    bool vis[V];
-    memset(vis, false, sizeof(vis));
+    vector<bool> vis(V, false);
 
     while (!pq.empty())
     {
@@ -60,9 +58,13 @@ int spanningTree(int V, int E, vector<vector<int>> &graph)
                 vis[p.second] = true;
 
                 for (int i = 0; i < V; i++)
+                {
                     if (graph[p.second][i] != INT_MAX)
+                    {
                         if (!vis[i])
-                            pq.push({graph[p.second][i], i});
+                            pq.push(make_pair(graph[p.second][i], i));
+                    }
+                }
             }
         }
     }
