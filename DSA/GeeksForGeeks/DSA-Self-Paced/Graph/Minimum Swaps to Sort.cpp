@@ -40,9 +40,9 @@ int minSwaps(int arr[], int N)
 
     vector<bool> visited(N, false);
 
-    int ans = 0
+    int ans = 0;
 
-        for (int i = 0; i < N; i++)
+    for (int i = 0; i < N; i++)
     {
         if (visited[i] == true || arrPos[i].second == i)
         {
