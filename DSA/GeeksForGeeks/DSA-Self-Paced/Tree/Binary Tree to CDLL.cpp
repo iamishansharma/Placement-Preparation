@@ -21,7 +21,24 @@ Node *newNode(int val)
     return temp;
 }
 
-int maxDiff(Node *root);
+Node *bTreeToCList(Node *root);
+void displayCList(Node *head)
+{
+    Node *itr = head;
+    do
+    {
+        cout << itr->data << " ";
+        itr = itr->right;
+    } while (head != itr);
+    cout << endl;
+    itr = itr->left;
+    do
+    {
+        cout << itr->data << " ";
+        itr = itr->left;
+    } while (head != itr);
+    cout << itr->data << endl;
+}
 
 // Function to Build Tree
 Node *buildTree(string str)
@@ -102,15 +119,16 @@ int main()
         getline(cin, s);
         Node *root = buildTree(s);
 
-        cout << maxDiff(root) << endl;
+        Node *head = bTreeToCList(root);
+        displayCList(head);
     }
     return 0;
 }
 
 // } Driver Code Ends
 
-/* A binary tree node
-
+/*Complete the function below
+Node is as follows:
 struct Node
 {
     int data;
@@ -121,31 +139,39 @@ struct Node
         data = x;
         left = right = NULL;
     }
-};
- */
+};*/
 
-/* Your are required to 
-complete this method*/
-void DFS(Node *root, vector<int> path, int &ans)
+void makeCLL(Node *root, Node *&head, Node *&prev)
 {
     if (root == NULL)
         return;
 
-    for (int i = 0; i < path.size(); i++)
-        ans = max(ans, path[i] - root->data);
+    makeCLL(root->left, head, prev);
 
-    path.push_back(root->data);
+    if (prev == NULL)
+        head = root;
+    else
+    {
+        root->left = prev;
+        prev->right = root;
+    }
+    prev = root;
 
-    DFS(root->left, path, ans);
-    DFS(root->right, path, ans);
+    makeCLL(root->right, head, prev);
+
+    if (root->right == NULL)
+    {
+        root->right = head;
+        head->left = root;
+    }
 }
 
-int maxDiff(Node *root)
+Node *bTreeToCList(Node *root)
 {
-    int ans = INT_MIN;
-    vector<int> path;
+    Node *head = NULL;
+    Node *prev = NULL;
 
-    DFS(root, path, ans);
+    makeCLL(root, head, prev);
 
-    return ans;
+    return head;
 }

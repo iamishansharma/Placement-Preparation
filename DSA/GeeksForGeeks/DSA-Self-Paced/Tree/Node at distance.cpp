@@ -7,14 +7,14 @@ using namespace std;
 struct Node
 {
     int data;
-    Node* left;
-    Node* right;
+    Node *left;
+    Node *right;
 };
 
 // Utility function to create a new Tree Node
-Node* newNode(int val)
+Node *newNode(int val)
 {
-    Node* temp = new Node;
+    Node *temp = new Node;
     temp->data = val;
     temp->left = NULL;
     temp->right = NULL;
@@ -22,14 +22,13 @@ Node* newNode(int val)
     return temp;
 }
 
-
-int printKDistantfromLeaf(Node* node, int k);
+int printKDistantfromLeaf(Node *node, int k);
 
 // Function to Build Tree
-Node* buildTree(string str)
+Node *buildTree(string str)
 {
     // Corner Case
-    if(str.length() == 0 || str[0] == 'N')
+    if (str.length() == 0 || str[0] == 'N')
         return NULL;
 
     // Creating vector of strings from input
@@ -37,29 +36,31 @@ Node* buildTree(string str)
     vector<string> ip;
 
     istringstream iss(str);
-    for(string str; iss >> str; )
+    for (string str; iss >> str;)
         ip.push_back(str);
 
     // Create the root of the tree
-    Node* root = newNode(stoi(ip[0]));
+    Node *root = newNode(stoi(ip[0]));
 
     // Push the root to the queue
-    queue<Node*> queue;
+    queue<Node *> queue;
     queue.push(root);
 
     // Starting from the second element
     int i = 1;
-    while(!queue.empty() && i < ip.size()) {
+    while (!queue.empty() && i < ip.size())
+    {
 
         // Get and remove the front of the queue
-        Node* currNode = queue.front();
+        Node *currNode = queue.front();
         queue.pop();
 
         // Get the current node's value from the string
         string currVal = ip[i];
 
         // If the left child is not null
-        if(currVal != "N") {
+        if (currVal != "N")
+        {
 
             // Create the left child for the current node
             currNode->left = newNode(stoi(currVal));
@@ -70,12 +71,13 @@ Node* buildTree(string str)
 
         // For the right child
         i++;
-        if(i >= ip.size())
+        if (i >= ip.size())
             break;
         currVal = ip[i];
 
         // If the right child is not null
-        if(currVal != "N") {
+        if (currVal != "N")
+        {
 
             // Create the right child for the current node
             currNode->right = newNode(stoi(currVal));
@@ -89,26 +91,25 @@ Node* buildTree(string str)
     return root;
 }
 
-
-int main() {
+int main()
+{
     int t;
     string tc;
     getline(cin, tc);
-    t=stoi(tc);
-    while(t--)
+    t = stoi(tc);
+    while (t--)
     {
         string s, ks;
         getline(cin, s);
-        Node* root = buildTree(s);
+        Node *root = buildTree(s);
         getline(cin, ks);
-        int k=stoi(ks);
-        cout<<printKDistantfromLeaf(root, k)<<endl;
+        int k = stoi(ks);
+        cout << printKDistantfromLeaf(root, k) << endl;
     }
     return 0;
 }
 
 // } Driver Code Ends
-
 
 //Node Structure
 /*struct Node
@@ -117,24 +118,45 @@ int main() {
 	Node *left, *right;
 };*/
 
-//This function returns the count of the total distinct nodes that are at a 
+//This function returns the count of the total distinct nodes that are at a
 //distance k from leaf nodes.
-int isDistanceToLeaf(Node *root, int k)
-{
-    if(root == NULL)
-        return 0;
-        
-    if(k==0)
-        if(root->left == NULL && root->right == NULL)
-            return 1;
-            
-    return isDistanceToLeaf(root->left,k-1) || isDistanceToLeaf(root->right,k-1);
-}
 
-int printKDistantfromLeaf(Node* root, int k)
+unordered_map<Node *, bool> m;
+int ans;
+int d;
+
+void help(Node *root, vector<Node *> temp)
 {
-    if(root==NULL)
+    if (root == NULL)
+        return;
+
+    temp.push_back(root);
+
+    if (root->left == NULL && root->right == NULL)
+    {
+        int x = temp.size() - d - 1;
+
+        if (x >= 0 && m[temp[x]] == 0)
+        {
+            ans++;
+            m[temp[x]] = 1;
+        }
+    }
+
+    help(root->left, temp);
+    help(root->right, temp);
+}
+int printKDistantfromLeaf(Node *root, int k)
+{
+    if (root == NULL)
         return 0;
-    
-    return isDistanceToLeaf(root,k) + printKDistantfromLeaf(root->left,k) + printKDistantfromLeaf(root->right,k);
+
+    m.clear();
+    ans = 0;
+    d = k;
+
+    vector<Node *> temp;
+    help(root, temp);
+
+    return ans;
 }

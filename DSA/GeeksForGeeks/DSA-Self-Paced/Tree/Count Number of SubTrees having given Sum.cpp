@@ -1,4 +1,5 @@
 // { Driver Code Starts
+//Initial Template for C++
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -20,8 +21,6 @@ Node *newNode(int val)
 
     return temp;
 }
-
-int maxDiff(Node *root);
 
 // Function to Build Tree
 Node *buildTree(string str)
@@ -90,62 +89,62 @@ Node *buildTree(string str)
     return root;
 }
 
+// Your are required to complete this function
+int countSubtreesWithSumX(Node *root, int x);
+
 int main()
 {
     int t;
-    string tc;
-    getline(cin, tc);
-    t = stoi(tc);
+    cin >> t;
+    getchar();
     while (t--)
     {
         string s;
         getline(cin, s);
         Node *root = buildTree(s);
 
-        cout << maxDiff(root) << endl;
+        int x;
+        cin >> x;
+        getchar();
+        cout << countSubtreesWithSumX(root, x) << endl;
     }
     return 0;
 }
 
 // } Driver Code Ends
 
-/* A binary tree node
-
+//User function Template for C++
+/*
+Structure of the node of the binary tree is as
 struct Node
 {
     int data;
     struct Node* left;
     struct Node* right;
-    
-    Node(int x){
-        data = x;
-        left = right = NULL;
-    }
 };
- */
-
-/* Your are required to 
-complete this method*/
-void DFS(Node *root, vector<int> path, int &ans)
+*/
+// your are required to complete this function
+// function should return the count of the number of
+// subtrees with Sum equal to X
+int rec(Node *root, int key, int &count)
 {
     if (root == NULL)
-        return;
+        return 0;
 
-    for (int i = 0; i < path.size(); i++)
-        ans = max(ans, path[i] - root->data);
+    int left = rec(root->left, key, count);
+    int right = rec(root->right, key, count);
 
-    path.push_back(root->data);
+    if ((root->data + left + right) == key)
+        count++;
 
-    DFS(root->left, path, ans);
-    DFS(root->right, path, ans);
+    return root->data + left + right;
 }
 
-int maxDiff(Node *root)
+int countSubtreesWithSumX(Node *root, int X)
 {
-    int ans = INT_MIN;
-    vector<int> path;
+    int ans = 0;
 
-    DFS(root, path, ans);
+    rec(root, X, ans);
 
     return ans;
 }

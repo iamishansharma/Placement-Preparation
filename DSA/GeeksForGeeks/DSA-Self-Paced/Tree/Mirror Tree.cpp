@@ -1,27 +1,23 @@
 // { Driver Code Starts
+//Initial Template for C++
+
 #include <bits/stdc++.h>
 using namespace std;
 
-// Tree Node
+/* A binary tree node has data, pointer to left child
+   and a pointer to right child */
 struct Node
 {
     int data;
-    Node *left;
-    Node *right;
+    struct Node *left;
+    struct Node *right;
+
+    Node(int x)
+    {
+        data = x;
+        left = right = NULL;
+    }
 };
-
-// Utility function to create a new Tree Node
-Node *newNode(int val)
-{
-    Node *temp = new Node;
-    temp->data = val;
-    temp->left = NULL;
-    temp->right = NULL;
-
-    return temp;
-}
-
-int maxDiff(Node *root);
 
 // Function to Build Tree
 Node *buildTree(string str)
@@ -39,7 +35,7 @@ Node *buildTree(string str)
         ip.push_back(str);
 
     // Create the root of the tree
-    Node *root = newNode(stoi(ip[0]));
+    Node *root = new Node(stoi(ip[0]));
 
     // Push the root to the queue
     queue<Node *> queue;
@@ -62,7 +58,7 @@ Node *buildTree(string str)
         {
 
             // Create the left child for the current node
-            currNode->left = newNode(stoi(currVal));
+            currNode->left = new Node(stoi(currVal));
 
             // Push it to the queue
             queue.push(currNode->left);
@@ -79,7 +75,7 @@ Node *buildTree(string str)
         {
 
             // Create the right child for the current node
-            currNode->right = newNode(stoi(currVal));
+            currNode->right = new Node(stoi(currVal));
 
             // Push it to the queue
             queue.push(currNode->right);
@@ -90,27 +86,44 @@ Node *buildTree(string str)
     return root;
 }
 
-int main()
-{
-    int t;
-    string tc;
-    getline(cin, tc);
-    t = stoi(tc);
-    while (t--)
-    {
-        string s;
-        getline(cin, s);
-        Node *root = buildTree(s);
+void mirror(struct Node *node);
 
-        cout << maxDiff(root) << endl;
-    }
-    return 0;
+/* Helper function to test mirror(). Given a binary
+   search tree, print out its data elements in
+   increasing sorted order.*/
+void inOrder(struct Node *node)
+{
+    if (node == NULL)
+        return;
+
+    inOrder(node->left);
+    printf("%d ", node->data);
+
+    inOrder(node->right);
 }
 
-// } Driver Code Ends
+/* Driver program to test size function*/
+int main()
+{
+    int tc;
+    scanf("%d ", &tc);
+    while (tc--)
+    {
+        string str;
+        getline(cin, str);
+        Node *root = buildTree(str);
+        mirror(root);
+        inOrder(root);
+        cout << "\n";
+    }
 
-/* A binary tree node
+    return 0;
+} // } Driver Code Ends
 
+//function Template for C++
+
+/* A binary tree node has data, pointer to left child
+   and a pointer to right child /
 struct Node
 {
     int data;
@@ -121,31 +134,18 @@ struct Node
         data = x;
         left = right = NULL;
     }
-};
- */
+}; */
 
-/* Your are required to 
-complete this method*/
-void DFS(Node *root, vector<int> path, int &ans)
+/* Should convert tree to its mirror */
+void mirror(Node *root)
 {
     if (root == NULL)
         return;
 
-    for (int i = 0; i < path.size(); i++)
-        ans = max(ans, path[i] - root->data);
+    Node *temp = root->right;
+    root->right = root->left;
+    root->left = temp;
 
-    path.push_back(root->data);
-
-    DFS(root->left, path, ans);
-    DFS(root->right, path, ans);
-}
-
-int maxDiff(Node *root)
-{
-    int ans = INT_MIN;
-    vector<int> path;
-
-    DFS(root, path, ans);
-
-    return ans;
+    mirror(root->left);
+    mirror(root->right);
 }

@@ -86,67 +86,39 @@ Node *buildTree(string str)
 
 // } Driver Code Ends
 
+/* Returns true if the given tree is foldable */
+
 /* A binary tree node has data, pointer to left child
-   and a pointer to right child  
-struct Node
+and a pointer to right child */
+/*struct node
 {
     int data;
-    Node* left;
-    Node* right;
-}; */
+    struct node* left;
+    struct node* right;
+    
+    node(int x){
+        data = x;
+        left = right = NULL;
+    }
+};
+*/
+bool check(Node *left, Node *right)
+{
+    if (left == NULL && right == NULL)
+        return true;
 
-/*this  function serializes 
-the binary tree and stores 
-it in the vector A*/
-void serialize(Node *root, vector<int> &list)
+    return left != NULL && right != NULL && check(left->left, right->right) && check(left->right, right->left);
+}
+
+bool IsFoldable(Node *root)
 {
     if (root == NULL)
-    {
-        list.push_back(-1);
-        return;
-    }
+        return true;
 
-    list.push_back(root->data);
-
-    serialize(root->left, list);
-    serialize(root->right, list);
-}
-
-/*this function deserializes
- the serialized vector A*/
-Node *getTree(vector<int> &list, int &index)
-{
-    if (index >= list.size() || list[index] == -1)
-    {
-        index += 1;
-        return NULL;
-    }
-
-    Node *root = new Node(list[index]);
-    index += 1;
-
-    root->left = getTree(list, index);
-    root->right = getTree(list, index);
-
-    return root;
-}
-
-Node *deSerialize(vector<int> &list)
-{
-    int index = 0;
-    return getTree(list, index);
+    return check(root->left, root->right);
 }
 
 // { Driver Code Starts.
-
-void inorder(Node *root)
-{
-    if (root == NULL)
-        return;
-    inorder(root->left);
-    cout << root->data << " ";
-    inorder(root->right);
-}
 
 int main()
 {
@@ -157,12 +129,14 @@ int main()
         string treeString;
         getline(cin, treeString);
         Node *root = buildTree(treeString);
-        vector<int> A;
-        serialize(root, A);
-
-        Node *getRoot = deSerialize(A);
-        inorder(getRoot);
-        cout << "\n";
+        if (IsFoldable(root))
+        {
+            cout << "Yes\n";
+        }
+        else
+        {
+            cout << "No\n";
+        }
     }
 
     return 0;

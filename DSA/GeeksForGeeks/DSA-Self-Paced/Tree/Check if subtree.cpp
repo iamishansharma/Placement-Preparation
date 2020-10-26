@@ -4,19 +4,22 @@
 using namespace std;
 
 // Tree Node
-struct Node {
+struct Node
+{
     int data;
     Node *left;
     Node *right;
 
-    Node(int val) {
+    Node(int val)
+    {
         data = val;
         left = right = NULL;
     }
 };
 
 // Function to Build Tree
-Node *buildTree(string str) {
+Node *buildTree(string str)
+{
     // Corner Case
     if (str.length() == 0 || str[0] == 'N')
         return NULL;
@@ -38,7 +41,8 @@ Node *buildTree(string str) {
 
     // Starting from the second element
     int i = 1;
-    while (!queue.empty() && i < ip.size()) {
+    while (!queue.empty() && i < ip.size())
+    {
 
         // Get and remove the front of the queue
         Node *currNode = queue.front();
@@ -48,7 +52,8 @@ Node *buildTree(string str) {
         string currVal = ip[i];
 
         // If the left child is not null
-        if (currVal != "N") {
+        if (currVal != "N")
+        {
 
             // Create the left child for the current node
             currNode->left = new Node(stoi(currVal));
@@ -64,7 +69,8 @@ Node *buildTree(string str) {
         currVal = ip[i];
 
         // If the right child is not null
-        if (currVal != "N") {
+        if (currVal != "N")
+        {
 
             // Create the right child for the current node
             currNode->right = new Node(stoi(currVal));
@@ -78,9 +84,7 @@ Node *buildTree(string str) {
     return root;
 }
 
-
- // } Driver Code Ends
-
+// } Driver Code Ends
 
 /* A binary tree node
 
@@ -99,40 +103,44 @@ struct Node
 
 /*you are required to
 complete this function */
-bool checksub(Node *root1, Node *root2)
+bool isIdentical(Node *root1, Node *root2)
 {
-    if(root1 == NULL && root2 == NULL)
-        return 1;
-    
-    if(root1 == NULL || root2 == NULL)
-        return 0;
-        
-    return root1->data == root2->data && checksub(root1->left, root2->left) && checksub(root1->right, root2->right);
+    if (root1 == NULL && root2 == NULL)
+        return true;
+
+    if (root1 == NULL || root2 == NULL)
+        return false;
+
+    bool check1 = isIdentical(root1->left, root2->left);
+    bool check2 = isIdentical(root1->right, root2->right);
+    bool check3 = root1->data == root2->data;
+
+    return check1 && check2 && check3;
 }
 
-bool isSubTree(Node* T, Node* S) 
+bool isSubTree(Node *root1, Node *root2)
 {
-    if(T == NULL)
-        return 0;
-        
-    return checksub(T, S) || isSubTree(T->left, S) || isSubTree(T->right, S);
+    if (root1 == NULL)
+        return false;
+
+    return isIdentical(root1, root2) || isSubTree(root1->left, root2) || isSubTree(root1->right, root2);
 }
 
 // { Driver Code Starts.
 
-int main() {
+int main()
+{
     int tc;
     scanf("%d ", &tc);
-    while (tc--) {
+    while (tc--)
+    {
         string strT, strS;
         getline(cin, strT);
         Node *rootT = buildTree(strT);
         getline(cin, strS);
         Node *rootS = buildTree(strS);
         cout << isSubTree(rootT, rootS) << "\n";
-
     }
 
-
     return 0;
-}  // } Driver Code Ends
+} // } Driver Code Ends

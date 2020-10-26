@@ -1,4 +1,6 @@
 // { Driver Code Starts
+//Initial Template for C++
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -20,8 +22,6 @@ Node *newNode(int val)
 
     return temp;
 }
-
-int maxDiff(Node *root);
 
 // Function to Build Tree
 Node *buildTree(string str)
@@ -90,62 +90,58 @@ Node *buildTree(string str)
     return root;
 }
 
+int getMaxSum(Node *root);
+
+// } Driver Code Ends
+
+//User function Template for C++
+
+//Node Structure
+/*struct Node
+{
+	int key;
+	Node *left, *right;
+};*/
+
+//This function returns the maximum sum of non-adjacent nodes.
+pair<int, int> maxSum(Node *root)
+{
+    if (root == NULL)
+    {
+        pair<int, int> sum(0, 0);
+        return sum;
+    }
+
+    pair<int, int> sum1 = maxSum(root->left);
+    pair<int, int> sum2 = maxSum(root->right);
+
+    pair<int, int> sum;
+
+    sum.first = sum1.second + sum2.second + root->data;
+    sum.second = max(sum1.first, sum1.second) + max(sum2.first, sum2.second);
+
+    return sum;
+}
+
+int getMaxSum(Node *root)
+{
+    pair<int, int> res = maxSum(root);
+
+    return max(res.first, res.second);
+}
+
+// { Driver Code Starts.
+// Driver code
 int main()
 {
     int t;
-    string tc;
-    getline(cin, tc);
-    t = stoi(tc);
+    scanf("%d ", &t);
     while (t--)
     {
         string s;
         getline(cin, s);
         Node *root = buildTree(s);
-
-        cout << maxDiff(root) << endl;
+        cout << getMaxSum(root) << endl;
     }
     return 0;
-}
-
-// } Driver Code Ends
-
-/* A binary tree node
-
-struct Node
-{
-    int data;
-    struct Node* left;
-    struct Node* right;
-    
-    Node(int x){
-        data = x;
-        left = right = NULL;
-    }
-};
- */
-
-/* Your are required to 
-complete this method*/
-void DFS(Node *root, vector<int> path, int &ans)
-{
-    if (root == NULL)
-        return;
-
-    for (int i = 0; i < path.size(); i++)
-        ans = max(ans, path[i] - root->data);
-
-    path.push_back(root->data);
-
-    DFS(root->left, path, ans);
-    DFS(root->right, path, ans);
-}
-
-int maxDiff(Node *root)
-{
-    int ans = INT_MIN;
-    vector<int> path;
-
-    DFS(root, path, ans);
-
-    return ans;
-}
+} // } Driver Code Ends
