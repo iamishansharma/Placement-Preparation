@@ -1,40 +1,42 @@
-#include <bits/stdc++.h>
-#include <boost/multiprecision/cpp_int.hpp>
-using namespace std;
-using boost::multiprecision::cpp_int;
-#define fastIO 			ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-#define debug(x)		{	cerr << #x << " = " << x <<endl;	}
-#define ll	 			unsigned long int
+// { Driver Code Starts
+//Initial template for C++
 
-void solve()
-{
-	int n=0;
-	cin>>n;
-	
-	cpp_int cat[n+1]={0};
-	
-	cat[0] = 1;
-	cat[1] = 1;
-	
-	for(int i=2; i<=n; i++)
-	{
-	    cat[i] = 0;
-	    for(int j=0; j<i; j++)
-	        cat[i] += cat[j] * cat[i-j-1];
-	}
-	    
-    cout<<cat[n]<<endl;
-}
+#include <boost/multiprecision/cpp_int.hpp>
+using boost::multiprecision::cpp_int; // https://www.geeksforgeeks.org/factorial-large-number-using-boost-multiprecision-library/
+using namespace std;
+
+cpp_int findCatalan(int);
 
 int main()
 {
-	fastIO;
-	
-	int tc=0;
-	cin>>tc;
-	while(tc--)
-	{
-		solve();
-	}
-	return 0;
+    //taking count of testcases
+    int t;
+    cin >> t;
+    while (t--)
+    {
+
+        //taking nth number
+        int n;
+        cin >> n;
+
+        //calling function findCatalan function
+        cout << findCatalan(n) << "\n";
+    }
+    return 0;
+} // } Driver Code Ends
+
+//User function template for C++
+
+// n : given integer value
+cpp_int findCatalan(int n)
+{
+    cpp_int dp[n + 1] = {0};
+
+    dp[0] = 1;
+
+    for (int i = 1; i <= n; i++)
+        for (int j = 0; j < i; j++)
+            dp[i] += dp[j] * dp[i - j - 1];
+
+    return dp[n];
 }

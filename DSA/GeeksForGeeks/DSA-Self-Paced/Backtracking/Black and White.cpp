@@ -1,56 +1,37 @@
-// { Driver Code Starts
-#include <bits/stdc++.h>
-
+#include <iostream>
 using namespace std;
 
-long long solve(int n, int m);
+int unSafe(int i, int j, int n, int m)
+{
+    int dx[] = {i + 1, i + 1, i + 2, i + 2, i - 1, i - 1, i - 2, i - 2};
+    int dy[] = {j + 2, j - 2, j + 1, j - 1, j + 2, j - 2, j - 1, j + 1};
+
+    int unsafe = 0;
+
+    for (int k = 0; k < 8; k++)
+        if (dx[k] < n && dx[k] >= 0 && dy[k] < m && dy[k] >= 0)
+            unsafe++;
+
+    return unsafe;
+}
 
 int main()
 {
-    // code
-    int T;
-    cin >> T;
-    while (T--)
+    int tc = 0;
+    cin >> tc;
+    while (tc--)
     {
         int n, m;
         cin >> n >> m;
-        cout << solve(n, m) << endl;
+
+        long long int ans = 0;
+        int total = n * m;
+
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < m; j++)
+                ans += total - unSafe(i, j, n, m) - 1;
+
+        cout << ans << endl;
     }
     return 0;
-} // } Driver Code Ends
-
-long long solve(int N, int M)
-{
-    int sub_res = 1;
-    int total = M * N;
-    long long res = 0;
-
-    for (int i = 0; i < N; i++)
-    {
-        for (int j = 0; j < M; j++)
-        {
-
-            if (i - 2 >= 0 && j + 1 < M)
-                sub_res++;
-            if (i - 1 >= 0 && j + 2 < M)
-                sub_res++;
-            if (i + 1 < N && j + 2 < M)
-                sub_res++;
-            if (i + 2 < N && j + 1 < M)
-                sub_res++;
-            if (i + 2 < N && j - 1 >= 0)
-                sub_res++;
-            if (i + 1 < N && j - 2 >= 0)
-                sub_res++;
-            if (i - 1 >= 0 && j - 2 >= 0)
-                sub_res++;
-            if (i - 2 >= 0 && j - 1 >= 0)
-                sub_res++;
-
-            res = (res + total - sub_res) % 1000000007;
-            sub_res = 1;
-        }
-    }
-
-    return res;
 }
