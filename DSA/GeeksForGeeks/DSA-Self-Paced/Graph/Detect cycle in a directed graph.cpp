@@ -8,6 +8,7 @@ using namespace std;
 *   V: number of vertices
 *   adj[]: representation of graph
 */
+
 bool DFS(int start, vector<int> g[], vector<bool> &visited, vector<bool> &recSt)
 {
     visited[start] = true;
@@ -32,26 +33,19 @@ bool DFS(int start, vector<int> g[], vector<bool> &visited, vector<bool> &recSt)
 
 bool isCyclic(int V, vector<int> g[])
 {
-    /*
-    
-    DFS, Recusion Stack based Solution
-    
-    vector<bool> visited(V, false);
-    vector<bool> recSt(V, false);
+    // vector<bool> recSt(V, false);
+    // vector<bool> visited(V, false);
 
-    for (int i = 0; i < V; i++)
-        if (!visited[i])
-            if (DFS(i, g, visited, recSt))
-                return true;
+    // for (int i = 0; i < V; i++)
+    //     if (!visited[i])
+    //         if (DFS(i, g, visited, recSt))
+    //             return true;
 
-    return false;*/
+    // return false;
 
-    /* BFS based on Kahns Algorithm, 
-    same as Topologically Sorting but at last if 
-    count != V cycle present */
+    int count = 0;
 
     vector<int> indegree(V, 0);
-    vector<bool> visited(V, false);
 
     for (int i = 0; i < V; i++)
         for (int j = 0; j < g[i].size(); j++)
@@ -61,30 +55,23 @@ bool isCyclic(int V, vector<int> g[])
 
     for (int i = 0; i < V; i++)
         if (indegree[i] == 0)
-        {
-            visited[i] = true;
             q.push(i);
-        }
-
-    int count = 0;
 
     while (!q.empty())
     {
-        int temp = q.front();
+        int fr = q.front();
         q.pop();
 
-        for (int i = 0; i < g[temp].size(); i++)
+        for (int i = 0; i < g[fr].size(); i++)
         {
-            int v = g[temp][i];
+            int v = g[fr][i];
 
             indegree[v]--;
 
             if (indegree[v] == 0)
-            {
-                visited[v] = true;
                 q.push(v);
-            }
         }
+
         count++;
     }
 
