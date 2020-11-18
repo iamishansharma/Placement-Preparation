@@ -1,0 +1,17 @@
+total 24
+-rwxrwxrwx 1 subham subham  189 Nov  7 14:31 dup2.c
+-rwxrwxrwx 1 subham subham 8704 Nov  7 15:47 exe
+-rwxrwxrwx 1 subham subham  670 Nov  7 15:06 execvp_ls.c
+-rwxrwxrwx 1 subham subham  145 Nov  7 09:35 fork.c
+-rwxrwxrwx 1 subham subham  452 Nov  5 18:52 fork_wait.c
+-rwxrwxrwx 1 subham subham  299 Nov  5 23:02 getcwd.c
+-rwxrwxrwx 1 subham subham  447 Nov  7 15:47 ls_pipe_sort.c
+-rwxrwxrwx 1 subham subham  135 Nov  5 23:17 mkdir.c
+-rwxrwxrwx 1 subham subham  424 Nov  5 23:49 opendir.c
+-rwxrwxrwx 1 subham subham  304 Nov  7 14:46 readwrite.c
+-rwxrwxrwx 1 subham subham  322 Nov  6 22:37 sm_reader.c
+-rwxrwxrwx 1 subham subham  335 Nov  6 22:32 sm_writer.c
+-rwxrwxrwx 1 subham subham 8424 Nov  5 18:37 sum
+-rwxrwxrwx 1 subham subham  271 Nov  5 18:35 sum.c
+-rwxrwxrwx 1 subham subham  230 Nov  5 18:45 test.c
+-rwxrwxrwx 1 subham subham    0 Nov  7 15:47 test.txt
