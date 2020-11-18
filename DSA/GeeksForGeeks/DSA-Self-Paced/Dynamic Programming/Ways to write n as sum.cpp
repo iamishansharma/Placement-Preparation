@@ -23,17 +23,28 @@ int main()
 
 // function to count number of ways in which n can
 // be written as sum of two or more than two integers
+typedef long long int ll;
+#define mod 1000000007
+
 int countWays(int n)
 {
-    int dp[n + 1];
+    ll dp[n][n + 1];
 
-    memset(dp, 0, sizeof(dp));
+    for (int i = 0; i <= n - 1; i++)
+    {
+        for (int j = 0; j <= n; j++)
+        {
+            if (j == 0) // if we have no weight , choose empty subset
+                dp[i][j] = 1;
+            else if (i == 0) //if we have no items and still bag is not full
+                dp[i][j] = 0;
 
-    dp[0] = 1;
+            else if (i <= j) // we have 2 options either include or exclude
+                dp[i][j] = (dp[i - 1][j] + dp[i][j - i]) % mod;
+            else
+                dp[i][j] = dp[i - 1][j];
+        }
+    }
 
-    for (int i = 1; i < n; i++)
-        for (int j = 1; j <= n; j++)
-            dp[j] += dp[j - i] % 1000000007;
-
-    return dp[n];
+    return (dp[n - 1][n] % mod);
 }
