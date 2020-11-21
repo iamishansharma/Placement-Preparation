@@ -2,38 +2,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long mod = 1000000007;
+// } Driver Code Ends
 
-long long countWays(int);
+class Solution
+{
+public:
+    int nthStair(int n)
+    {
+        vector<int> dp(n + 1, 0);
 
+        dp[0] = 1;
+
+        for (int i = 1; i <= n; i++)
+            dp[i] += dp[i - 1];
+
+        for (int j = 2; j <= n; j++)
+            dp[j] += dp[j - 2];
+
+        return dp[n];
+    }
+};
+
+// { Driver Code Starts.
 int main()
 {
-    //taking count of testcases
-    int t;
-    cin >> t;
-
-    while (t--)
+    int tc;
+    cin >> tc;
+    while (tc--)
     {
-        //taking stair count
-        int m;
-        cin >> m;
-
-        cout << countWays(m) << endl; // Print the output from our pre computed array
+        int n;
+        cin >> n;
+        Solution ob;
+        int ans = ob.nthStair(n);
+        cout << ans << "\n";
     }
     return 0;
 } // } Driver Code Ends
-
-// function to count ways to reach mth stair
-long long countWays(int m)
-{
-    long long dp[m + 1];
-
-    dp[0] = 0;
-    dp[1] = 1;
-    dp[2] = 2;
-
-    for (long long i = 3; i <= m; i++)
-        dp[i] = dp[i - 2] + 1;
-
-    return dp[m];
-}
