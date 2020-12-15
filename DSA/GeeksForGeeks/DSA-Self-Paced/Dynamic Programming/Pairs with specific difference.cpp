@@ -9,13 +9,14 @@ using namespace std;
         cerr << #x << " = " << x << endl; \
     }
 #define ll long long int
+#define mod 1000000007
 
 void solve()
 {
     int n = 0;
     cin >> n;
 
-    vector<int> arr(n);
+    vector<int> arr(n, 0);
 
     for (int i = 0; i < n; i++)
         cin >> arr[i];
@@ -23,20 +24,27 @@ void solve()
     int k = 0;
     cin >> k;
 
-    sort(arr.begin(), arr.end(), greater<int>());
+    sort(arr.begin(), arr.end());
+
+    int i = n - 1, j = n - 2;
 
     int sum = 0;
 
-    // 17 15 12 10 9 5 3
-
-    for (int i = 0; i < n; i++)
+    while (i >= 0 && j >= 0)
     {
-        if (i + 1 < n && arr[i] - arr[i + 1] < k)
+        if (arr[i] - arr[j] < k)
         {
-            sum += arr[i] + arr[i + 1];
-            i++;
+            sum += arr[i] + arr[j];
+            i = i - 2;
+            j = j - 2;
+        }
+        else
+        {
+            i--;
+            j--;
         }
     }
+
     cout << sum << endl;
 }
 

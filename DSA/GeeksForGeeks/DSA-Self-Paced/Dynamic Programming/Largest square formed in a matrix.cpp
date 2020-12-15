@@ -13,23 +13,17 @@ using namespace std;
 
 void solve()
 {
-    int n, m;
-
+    int n = 0;
+    int m = 0;
     cin >> n >> m;
 
-    vector<vector<int>> mat(n, vector<int>(m));
+    vector<vector<int>> mat(n, vector<int>(m, 0));
 
     for (int i = 0; i < n; i++)
         for (int j = 0; j < m; j++)
             cin >> mat[i][j];
 
-    if (n == 1)
-    {
-        cout << "1" << endl;
-        return;
-    }
-
-    if (m == 1)
+    if (n == 1 || m == 1)
     {
         cout << "1" << endl;
         return;
@@ -43,10 +37,9 @@ void solve()
         {
             if (mat[i][j] == 1)
             {
-                int localmin = min(mat[i - 1][j - 1], min(mat[i - 1][j], mat[i][j - 1]));
+                int minval = min(mat[i - 1][j - 1], min(mat[i - 1][j], mat[i][j - 1]));
 
-                if (localmin > 0)
-                    mat[i][j] = localmin + 1;
+                mat[i][j] = minval + 1;
 
                 maxval = max(maxval, mat[i][j]);
             }
